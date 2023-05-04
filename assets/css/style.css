@@ -1,4 +1,21 @@
 /* Global */
+h1 {
+    /* color: #87041a; */
+    color: #d54d2f;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    text-shadow: 2px 2px 5px #570906;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #ffcc67;
+}
+
+.article {
+    background-color: #fff8e8;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -6,12 +23,13 @@ a {
 
 /* Header */
 #header {
-    background-color: #d16b18;
+    /* background-color: #d16b18; */
+    background-color: #810a1a;
 }
 
 /* Navbar */
 #my-nav {
-    background-color: #ffdf7f;
+    background-color: #ffcc67;
 }
 
 .nav, .nav-link.active {
@@ -21,14 +39,28 @@ a {
 
 .nav-link {
     --bs-nav-link-color: black;
+    font-size: 110%;
 }
 
 .nav-tabs {
-    --bs-nav-tabs-link-active-bg: #f8be12;
+    --bs-nav-tabs-link-active-bg: #f5a936;
 }
 
-/* Review Search */
-#review-search {
-    height: 30vw;
-    background: url(../images/concert.jpeg) center;
+/* Review Search Panel */
+#search-panel {
+    height: 60vh;
+    background: url(../images/concert.jpeg) center ;
+    border: none;
+}
+
+#search-button {
+    background-color: #a2182b;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.form-control {
+    background-color: #fff8e8;
+    border: none;
+    border-radius: 0.25rem;
 }
