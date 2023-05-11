@@ -46,6 +46,15 @@ a {
     --bs-nav-tabs-link-active-bg: #f5a936;
 }
 
+.nav-item:hover {
+    background-color: #f5a936;
+}
+
+.nav-link:hover {
+    --bs-nav-tabs-link-hover-border-color: rgba(0,0,0,0);
+    --bs-nav-link-hover-color: black;
+}
+
 /* Review Search Panel */
 #search-panel {
     height: 60vh;
@@ -63,4 +72,9 @@ a {
     background-color: #fff8e8;
     border: none;
     border-radius: 0.25rem;
+}
+
+/* Footer */
+#footer {
+    background-color: #700e28;
 }
