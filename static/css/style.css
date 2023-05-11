@@ -9,7 +9,11 @@ h1 {
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #ffcc67;
+    background-color: #ffe592;
+}
+
+.row {
+    --bs-gutter-x: 0;
 }
 
 .article {
@@ -27,6 +31,16 @@ a {
     background-color: #700e28;
 }
 
+#log-in {
+    float: right;
+    color: #d54d2f;
+    font-size: 130%;
+}
+
+#log-in:hover {
+    color: #eb8b76;
+}
+
 /* Navbar */
 #my-nav {
     background-color: #ffcc67;
@@ -35,6 +49,7 @@ a {
 .nav, .nav-link.active {
     border: 0;
     color: inherit;
+    --bs-nav-tabs-link-active-color: #700e28;
 }
 
 .nav-link {
@@ -51,13 +66,13 @@ a {
 }
 
 .nav-link:hover {
-    --bs-nav-tabs-link-hover-border-color: rgba(0,0,0,0);
-    --bs-nav-link-hover-color: black;
+    --bs-nav-tabs-link-hover-border-color: transparent;
+    --bs-nav-link-hover-color: #700e28;
 }
 
 /* Review Search Panel */
 #search-panel {
-    height: 60vh;
+    height: 55vh;
     background: url(../images/concert.jpeg) center ;
     border: none;
 }
@@ -74,7 +89,32 @@ a {
     border-radius: 0.25rem;
 }
 
+/* Log In */
+form, #log-in-title {
+    margin-left: 3%;
+}
+
+.form-label {
+    font-size: 115%;
+}
+
+.form-control {
+    width: 45%;
+}
+
 /* Footer */
 #footer {
     background-color: #700e28;
+}
+
+.foot-nav:hover {
+    background-color: transparent;
+}
+
+.foot-link {
+    --bs-nav-link-color: #d54d2f;
+}
+
+.foot-link:hover {
+    --bs-nav-link-hover-color: #eb8b76;
 }

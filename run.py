@@ -24,6 +24,11 @@ def by_venue():
     return render_template("by-venue.html")
 
 
+@app.route("/log_in")
+def log_in():
+    return render_template("log-in.html")
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
