@@ -98,7 +98,7 @@ form, #log-in-title {
     font-size: 115%;
 }
 
-.form-control {
+#username, #password {
     width: 45%;
 }
 
