@@ -6,7 +6,7 @@
             <div class="article col-10 col-lg-8 col-xxl-6">
                 <h2 id="log-in-title" class="m-5 ps-3">Log In</h2>
                 <div class="m-5">
-                    <form method="GET" action="">
+                    <form method="GET" action="{{ url_for('profile') }}">
                         <label for="username" class="ms-5 form-label">Username</label>
                         <input type="text" id="username" class="ms-5 form-control border border-dark-subtle">
                         <label for="password" class="ms-5 form-label">Password</label>

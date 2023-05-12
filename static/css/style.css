@@ -16,10 +16,6 @@ body {
     --bs-gutter-x: 0;
 }
 
-.article {
-    background-color: #fff8e8;
-}
-
 a {
     text-decoration: none;
     color: inherit;
@@ -87,6 +83,15 @@ a {
     background-color: #fff8e8;
     border: none;
     border-radius: 0.25rem;
+}
+
+/* Reviews */
+.article {
+    background-color: #fff8e8;
+}
+
+.review {
+    background-color: #fff;
 }
 
 /* Log In */
