@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+<header>
+    <script src="{{ url_for('static', filename='js/api.js') }}"></script>
+</header>
     <section id="search-panel">
         <div class="row">
             <div class="col-1 col-lg-2 col-xxl-3"></div>
@@ -13,7 +16,6 @@
             <div class="col-1 col-lg-2 col-xxl-3"></div>
         </div>
     </section>
-    
     <section>
         <div class="row">
             <div class="col-1 col-lg-2 col-xxl-3"></div>
@@ -21,7 +23,8 @@
                 <h2 class="m-4">Reviews by Artist</h2>
                 <div class="mx-5">
                     <h3>Artist</h3>
-                    <h4>Caskets</h4>
+                    <h4 id="artist_name">BEEP</h4>
+                    <h5 id="artist_id">Boop</h5>
                 </div>
             </div>
             <div class="col-1 col-lg-2 col-xxl-3"></div>
