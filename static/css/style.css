@@ -21,6 +21,10 @@ a {
     color: inherit;
 }
 
+ul {
+    list-style-type: none;
+}
+
 /* Header */
 #header {
     /* background-color: #d16b18; */

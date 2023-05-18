@@ -13,12 +13,10 @@ window.onload = (event) => {
             byVenueLink.classList.remove("active");
             break;
         case "/reviews_by_artist":
-            console.log("Hello");
             recentLink.classList.remove("active");
             byArtistLink.classList.add("active");
             byTourLink.classList.remove("active");
             byVenueLink.classList.remove("active");
-            console.log("Hello again");
             break;
         case "/reviews_by_tour":
             recentLink.classList.remove("active");

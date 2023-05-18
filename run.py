@@ -49,6 +49,11 @@ def get_artist_by_id(artist_id):
     return artist_repo.get_artist_by_id(artist_id)
 
 
+@app.get("/api/artists")
+def get_all_artists():
+    return artist_repo.get_all_artists()
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),

@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", async function(event) {
-    await fetch('/api/artist/1',{method:"GET"}).then(response => response.json()).then((data)=>{
+    await fetch('/api/artists',{method:"GET"}).then(response => response.json()).then((data)=>{
         console.log(data);
-        document.getElementById("artist_name").innerHTML = data.ArtistName;
-        document.getElementById("artist_id").innerHTML = data.artist_id;
+        let artistList = "<ul>";
+        for (let i in data) {
+            artistName = (data[i].ArtistName);
+            artistList += `<li>` + artistName + `</li>`;
+        }
+        artistList += "</ul>";
+        console.log(artistList);
+        document.getElementById("artist-names").innerHTML = artistList;
     })
 });
