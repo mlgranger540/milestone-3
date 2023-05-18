@@ -14,6 +14,10 @@ artist = Blueprint('artist', __name__)
 def get_artist_by_id(artist_id):
     return artist_repo.get_artist_by_id(artist_id)
 
+@artist.get("/api/artist/<string:ArtistName>")
+def get_artist_by_name(ArtistName):
+    return artist_repo.get_artist_by_name(ArtistName)
+
 @artist.get("/api/artists/<int:genre_id>")
 def get_artists_by_genre_id(genre_id):
     return artist_repo.get_artists_by_genre_id(genre_id)

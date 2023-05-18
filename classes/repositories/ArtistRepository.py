@@ -6,8 +6,16 @@ from classes.models.Database import Database
 class ArtistRepository(Database):
     # Get an artist from the database with a given artist_id
     def get_artist_by_id(self, artist_id:int):
-        sql = 'SELECT * FROM public."Artist" WHERE artist_id = %s;' # Note: no quotes
+        sql = 'SELECT * FROM public."Artist" WHERE "artist_id" = %s;' # Note: no quotes
         data = (artist_id, )
+        row = self.get_data(sql,data,True)
+        user = Artist(row[0],row[1],row[2])
+        return user.to_json()
+    
+    # Get an artist from the database with a given ArtistName
+    def get_artist_by_name(self, ArtistName:str):
+        sql = 'SELECT * FROM public."Artist" WHERE "ArtistName" = %s;' # Note: no quotes
+        data = (ArtistName, )
         row = self.get_data(sql,data,True)
         user = Artist(row[0],row[1],row[2])
         return user.to_json()

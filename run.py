@@ -44,17 +44,22 @@ def index():
 
 @app.route("/reviews_by_artist")
 def by_artist():
-    return render_template("by-artist.html")
+    return render_template("reviews-by-artist.html")
 
 
 @app.route("/reviews_by_tour")
 def by_tour():
-    return render_template("by-tour.html")
+    return render_template("reviews-by-tour.html")
 
 
 @app.route("/reviews_by_venue")
 def by_venue():
-    return render_template("by-venue.html")
+    return render_template("reviews-by-venue.html")
+
+
+@app.route("/artist/<int:artist_id>")
+def artist_reviews():
+    return render_template("artist.html")
 
 
 if __name__ == "__main__":
