@@ -45,6 +45,3 @@ class ReviewRepository(Database):
         sql = 'DROP * FROM public."Review" WHERE review_id = %s;'
         data = (review.review_id,)
         return self.update_delete_data(sql,data)
-
-
-    

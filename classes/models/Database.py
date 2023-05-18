@@ -14,10 +14,10 @@ class Database:
     # Private method to create a connection
     def __connect(self):
         return psycopg2.connect(
-            host=self.connection_string,
-            database=self.database_name,
-            user=self.user,
-            password=self.password)
+            host = self.connection_string,
+            database = self.database_name,
+            user = self.user,
+            password = self.password)
     
     # Private method to close connection with db
     def __close(self, curr, conn):
@@ -87,15 +87,8 @@ class Database:
             self.__close(cur,conn)
 
             return True
+        
         except Exception as e:
             print(e.with_traceback())
             self.__close(cur,conn)
             return False
-
-        
-
-
-
-
-
-

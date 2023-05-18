@@ -1,19 +1,38 @@
 import os
-from classes.repositories.ArtistRepository import ArtistRepository
 from flask import Flask, render_template
+from flask_login import LoginManager, login_required
+from classes.repositories.UserRepository import UserRepository
+from routes.ConcertBlueprint import concert
+from routes.AuthBlueprint import auth
+from routes.UserBlueprint import user
+from routes.ArtistBlueprint import artist
 from dotenv import load_dotenv
 
 
 load_dotenv()  # take environment variables from .env.
 
-
+# Start flask server using the --app parameter
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+
 
 # Load in repositories
-artist_repo = ArtistRepository()
+user_repo = UserRepository()
+
+# Blueprints
+app.register_blueprint(concert)
+app.register_blueprint(auth)
+app.register_blueprint(user)
+app.register_blueprint(artist)
 
 
-# Routes
+@login_manager.user_loader
+def load_user(user_id):
+    # since the user_id is just the primary key of our user table, use it in the query for the user
+    return user_repo.get_user_by_id(user_id)
+
+
+# Page routes
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -32,26 +51,6 @@ def by_tour():
 @app.route("/reviews_by_venue")
 def by_venue():
     return render_template("by-venue.html")
-
-
-@app.route("/log_in")
-def log_in():
-    return render_template("log-in.html")
-
-
-@app.route("/profile")
-def profile():
-    return render_template("profile.html")
-
-
-@app.get("/api/artist/<int:artist_id>")
-def get_artist_by_id(artist_id):
-    return artist_repo.get_artist_by_id(artist_id)
-
-
-@app.get("/api/artists")
-def get_all_artists():
-    return artist_repo.get_all_artists()
 
 
 if __name__ == "__main__":

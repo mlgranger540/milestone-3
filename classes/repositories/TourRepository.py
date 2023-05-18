@@ -13,7 +13,7 @@ class TourRepository(Database):
     
     def get_all_tours(self):
         sql = 'SELECT * FROM public."Tour";' # Note: no quotes
-        data = ( )
+        data = ()
         rows = self.get_data(sql,data,False)
         res = []
         for x in len(rows):
