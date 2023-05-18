@@ -15,6 +15,10 @@ load_dotenv()  # take environment variables from .env.
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
+login_manager = LoginManager()
+login_manager.login_view = 'auth.login'
+login_manager.init_app(app)
+
 
 # Load in repositories
 user_repo = UserRepository()

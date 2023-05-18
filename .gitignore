@@ -10,3 +10,4 @@ cloudinary_python.txt
 .venv/
 .env
 .DS_Store
+venv2
