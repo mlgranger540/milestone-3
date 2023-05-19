@@ -15,6 +15,7 @@ user = Blueprint('user', __name__)
 def get_user_by_id(user_id):
     return user_repo.get_user_by_id(user_id)
 
+
 @user.get("/api/user/username/<user_name>")
 def get_user_by_username(user_name):
     return user_repo.get_user_by_username_json(escape(user_name))

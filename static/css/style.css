@@ -71,8 +71,12 @@ ul {
 }
 
 /* Review Search Panel */
-#search-panel {
+#search-panel-long {
     height: 55vh;
+}
+
+.search-panel {
+    height: 30vh;
     background: url(../images/concert.jpeg) center ;
     border: none;
 }

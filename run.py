@@ -57,11 +57,6 @@ def by_venue():
     return render_template("reviews-by-venue.html")
 
 
-@app.route("/artist/<int:artist_id>")
-def artist_reviews():
-    return render_template("artist.html")
-
-
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),

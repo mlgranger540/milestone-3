@@ -43,6 +43,7 @@ def post_login():
     print("{} is logged in...".format(user.UserName))
     return redirect(url_for('index'))
 
+
 @auth.route('/logout')
 @login_required
 def logout():

@@ -26,6 +26,18 @@ class ReviewRepository(Database):
             res.append(review)
         return jsonpickle.encode(res, False)
     
+    # Get all reviews for a given artist_id
+    def get_reviews_by_artist_id(self,artist_id:int):
+        sql = 'SELECT * FROM public."Review" WHERE artist_id = %s;' # Note: no quotes
+        data = (artist_id, )
+        rows = self.get_data(sql,data,False)
+        res = []
+        for x in range(len(rows)):
+            review = Review(rows[x][0],rows[x][1],rows[x][2])
+            res.append(review)
+        return jsonpickle.encode(res, False)
+
+    
     # Add a new review to the Review table
     def add_review(self, review:Review):
         sql = 'INSERT INTO public."Review" ("ReviewTitle","ReviewText","ReviewRating","user_id","concert_id") VALUES (%s,%s,%s,%s,%s) RETURNING review_id;'
