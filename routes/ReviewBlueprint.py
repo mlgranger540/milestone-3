@@ -18,10 +18,18 @@ def post_new_review():
     r = Review(0,request.form["ReviewTitle"],request.form["ReviewText"],request.form["ReviewRating"],request.form["user_id"],request.form["concert_id"])
     return review_repo.add_review(r)
 
+
 # Get reviews for a given artist
 @review.get("/api/reviews/<int:artist_id>")
 def get_reviews_for_artist_id(artist_id):
     return review_repo.get_reviews_for_artist_id(artist_id)
+
+
+# Get all reviews
+@review.get("/api/reviews")
+def get_all_reviews():
+    return review_repo.get_all_reviews()
+
 
 # Edit existing review
 @review.patch("/api/review/<int:review_id>")
@@ -29,6 +37,7 @@ def patch_new_review(review_id):
     print(request.form)
     r = Review(review_id, request.form["ReviewTitle"],request.form["ReviewText"],request.form["ReviewRating"],request.form["user_id"],request.form["concert_id"])
     return review_repo.edit_review(r)
+
 
 # Delete existing review
 @review.delete("/api/review/<int:review_id>")
