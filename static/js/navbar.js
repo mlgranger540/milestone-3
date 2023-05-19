@@ -4,6 +4,9 @@ window.onload = (event) => {
     let byArtistLink = navLinks[1];
     let byTourLink = navLinks[2];
     let byVenueLink = navLinks[3];
+    let postButton = document.getElementById("post-button");
+    let editButton = document.getElementById("edit-button");
+    let deleteButton = document.getElementById("delete-button");
 
     switch (window.location.pathname) {
         case "/":
@@ -31,4 +34,21 @@ window.onload = (event) => {
             byVenueLink.classList.add("active");
             break;
     }
+
+    postButton.addEventListener("click", postFunction);
+    editButton.addEventListener("click", editFunction);
+    deleteButton.addEventListener("click", deleteFunction);
 };
+
+
+function postFunction (event) {
+    console.log("post");
+}
+
+function editFunction (event) {
+    console.log("edit");
+}
+
+function deleteFunction (event) {
+    console.log("delete");
+}

@@ -41,8 +41,11 @@ def post_login():
     # if the above check passes, then we know the user has the right credentials
     login_user(user)
     print("{} is logged in...".format(user.UserName))
-    return redirect(url_for('index'))
+    return redirect(url_for('auth.profile'))
 
+@auth.route("/profile")
+def profile():
+    return render_template("profile.html")
 
 @auth.route('/logout')
 @login_required

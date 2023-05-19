@@ -22,6 +22,9 @@
             <div class="col-1 col-lg-2 col-xxl-3">
                 <a id="log-in" class="me-4 mt-2" href="{{ url_for('auth.login') }}">Log In</a>
             </div>
+            <div class="col-1 col-lg-2 col-xxl-3">
+                <a id="profile" class="me-4 mt-2" href="{{ url_for('auth.profile') }}" hidden>Profile</a>
+            </div>
         </div>
         <nav id="my-nav">
             <div class="row">
@@ -45,9 +48,9 @@
         </nav>
     </header>
 
-    <button class="btn btn-success">Post</button>
-    <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-danger">Delete</button>
+    <button id="post-button" class="btn btn-success">Post</button>
+    <button id="edit-button" class="btn btn-primary">Edit</button>
+    <button id="delete-button" class="btn btn-danger">Delete</button>
 
     {% block content %}
     {% endblock %}
