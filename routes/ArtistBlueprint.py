@@ -30,6 +30,11 @@ def get_all_artists():
     return artist_repo.get_all_artists()
 
 
+@artist.get("/api/artists/extended")
+def get_all_artists_extended():
+    return artist_repo.get_all_artists_extended()
+
+
 @artist.route("/artist/<int:artist_id>")
 def artist_reviews(artist_id):
     artist = artist_repo.get_artist_by_id(artist_id)

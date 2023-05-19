@@ -6,6 +6,7 @@ from routes.ConcertBlueprint import concert
 from routes.AuthBlueprint import auth
 from routes.UserBlueprint import user
 from routes.ArtistBlueprint import artist
+from routes.ReviewBlueprint import review
 from dotenv import load_dotenv
 
 
@@ -23,11 +24,12 @@ login_manager.init_app(app)
 # Load in repositories
 user_repo = UserRepository()
 
-# Blueprints
+# Register blueprints
 app.register_blueprint(concert)
 app.register_blueprint(auth)
 app.register_blueprint(user)
 app.register_blueprint(artist)
+app.register_blueprint(review)
 
 
 @login_manager.user_loader

@@ -1,5 +1,6 @@
 import jsonpickle
 from classes.models.Artist import Artist
+from classes.models.ArtistExtended import ArtistExtended
 from classes.models.Database import Database
 
 
@@ -30,7 +31,7 @@ class ArtistRepository(Database):
             artist = Artist(rows[x][0],rows[x][1],rows[x][2])
             res.append(artist)
         return jsonpickle.encode(res, False)
-    
+
     # Get all artists in the database
     def get_all_artists(self):
         sql = 'SELECT * FROM public."Artist";' # Note: no quotes
@@ -39,5 +40,17 @@ class ArtistRepository(Database):
         res = []
         for x in range(len(rows)):
             artist = Artist(rows[x][0],rows[x][1],rows[x][2])
+            res.append(artist)
+        return jsonpickle.encode(res, False)
+    
+    # Get all artists in the database with genre info
+    def get_all_artists_extended(self):
+        sql = 'SELECT * FROM public."Artist" NATURAL JOIN public."Genre";'
+        data = ()
+        rows = self.get_data(sql,data,False)
+        res = []
+        for x in range(len(rows)):
+            print(rows[x])
+            artist = ArtistExtended(rows[x][0],rows[x][1],rows[x][2],rows[x][3])
             res.append(artist)
         return jsonpickle.encode(res, False)
