@@ -7,6 +7,7 @@ from routes.AuthBlueprint import auth
 from routes.UserBlueprint import user
 from routes.ArtistBlueprint import artist
 from routes.ReviewBlueprint import review
+from routes.TourBlueprint import tour
 from dotenv import load_dotenv
 
 
@@ -30,6 +31,7 @@ app.register_blueprint(auth)
 app.register_blueprint(user)
 app.register_blueprint(artist)
 app.register_blueprint(review)
+app.register_blueprint(tour)
 
 
 @login_manager.user_loader

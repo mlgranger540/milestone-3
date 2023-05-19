@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+<header>
+    <script src="{{ url_for('static', filename='js/api_reviews_by_tour.js') }}"></script>
+</header>
     <section class="search-panel">
         <div class="row">
             <div class="col-1 col-lg-2 col-xxl-3"></div>
@@ -20,8 +23,7 @@
             <div id="by-tour" class="article col-10 col-lg-8 col-xxl-6">
                 <h2 class="m-4">Reviews by Tour</h2>
                 <div class="mx-5">
-                    <h3>Tour</h3>
-                    <h4>Caskets UK Headline Tour 2023</h4>
+                    <h3 id="tour-names">Loading Tours...</h3>
                 </div>
             </div>
             <div class="col-1 col-lg-2 col-xxl-3"></div>

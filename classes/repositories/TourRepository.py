@@ -16,8 +16,7 @@ class TourRepository(Database):
         data = ()
         rows = self.get_data(sql,data,False)
         res = []
-        for x in len(rows):
+        for x in range(len(rows)):
             tour = Tour(rows[x][0],rows[x][1])
             res.append(tour)
-        
         return jsonpickle.encode(res,unpicklable=False)
