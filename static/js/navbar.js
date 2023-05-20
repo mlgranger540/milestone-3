@@ -35,7 +35,7 @@ window.onload = (event) => {
             break;
     }
 
-    postButton.addEventListener("click", postFunction);
+    // postButton.addEventListener("click", postFunction);
     editButton.addEventListener("click", editFunction);
     deleteButton.addEventListener("click", deleteFunction);
 };

@@ -61,6 +61,11 @@ def by_venue():
     return render_template("reviews-by-venue.html")
 
 
+@app.route("/post_review/<int:user_id>")
+def post_review(user_id):
+    return render_template("post-review.html")
+
+
 if __name__ == "__main__":
     app.run(
         ssl_context='adhoc',
