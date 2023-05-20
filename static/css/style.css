@@ -106,7 +106,11 @@ ul {
     background-color: #fff;
 }
 
-/* Log In */
+#ReviewRating {
+    max-width: 92%;
+}
+
+/* Log In and Profile */
 form, #log-in-title {
     margin-left: 3%;
 }
@@ -117,6 +121,10 @@ form, #log-in-title {
 
 #username, #password {
     width: 45%;
+}
+
+#edit-button, #delete-button {
+    max-width: 10%;
 }
 
 /* Footer */

@@ -72,6 +72,12 @@ def post_review(user_id):
     return render_template("post-review.html", user=current_user)
 
 
+@app.route("/patch_review/<int:user_id>")
+@login_required
+def patch_review(user_id):
+    return render_template("edit-review.html", user=current_user)
+
+
 if __name__ == "__main__":
     app.run(
         ssl_context='adhoc',
