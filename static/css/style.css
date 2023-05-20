@@ -31,13 +31,13 @@ ul {
     background-color: #700e28;
 }
 
-#log-in {
+.user-options {
     float: right;
     color: #d54d2f;
     font-size: 130%;
 }
 
-#log-in:hover {
+.user-options:hover {
     color: #eb8b76;
 }
 
@@ -79,6 +79,10 @@ ul {
     height: 30vh;
     background: url(../images/concert.jpeg) center ;
     border: none;
+}
+
+#search-input {
+    max-width: 75%;
 }
 
 #search-button {

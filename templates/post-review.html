@@ -12,13 +12,19 @@
                     <form method="POST" action="{{ url_for('review.post_new_review', user_id=1) }}">
                         <label for="concert-dropdown" class="form-label">Concert</label>
                         <select class="form-control border border-dark-subtle" id="concert_dropdown"></select>
-                        <label for="review-title" class="form-label">Review Title</label>
-                        <input type="text" id="review-title" name="ReviewTitle" class="form-control border border-dark-subtle">
-                        <label for="review-rating" class="form-label">Rating</label>
-                        <input type="number" min="0" max="10" id="ReviewRating" name="review-rating" class="form-control border border-dark-subtle">
+                        <div class="row">
+                            <div class="col-10">
+                                <label for="review-title" class="form-label">Review Title</label>
+                                <input type="text" id="review-title" name="ReviewTitle" class="form-control border border-dark-subtle">
+                            </div>
+                            <div class="col-2">
+                                <label for="review-rating" class="form-label">Rating</label>
+                                <input type="number" min="0" max="10" id="ReviewRating" name="review-rating" class="form-control border border-dark-subtle">
+                            </div>
+                        </div>
                         <label for="review-text" class="form-label">What did you think?</label>
-                        <textarea id="review-text" name="ReviewText" class="form-control border border-dark-subtle"></textarea>
-                        <button type="submit" class="mb-4 btn btn-success">Post</button>
+                        <textarea id="review-text" name="ReviewText" class="form-control border border-dark-subtle" rows="10"></textarea>
+                        <button type="submit" class="my-3 btn btn-success">Post</button>
                     </form>
                 </div>
             </div>
