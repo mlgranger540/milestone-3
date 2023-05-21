@@ -123,10 +123,6 @@ form, #log-in-title {
     width: 45%;
 }
 
-#edit-button, #delete-button {
-    max-width: 10%;
-}
-
 /* Footer */
 #footer {
     background-color: #700e28;

@@ -6,22 +6,22 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     console.log(artist.artist_id + " " + artist.ArtistName + " " + artist.genre_id);
     document.getElementById("artist-name").innerHTML = artist.ArtistName;
 
-    const review_res = await fetch(`/api/reviews/${artistID}`, {method:"GET"});
-    const review_json = await review_res.json();
-    const review = review_json;
+    const reviews_res = await fetch(`/api/reviews/${artistID}`, {method:"GET"});
+    const reviews_json = await reviews_res.json();
+    const reviews = reviews_json;
     let reviewsDiv = "<div>";
-    for (let i in review){
-        console.log(review[i]);
-        let reviewTitle = review[i].ReviewTitle;
-        let reviewRating = review[i].ReviewRating;
-        let firstName = review[i].FirstName;
-        let lastName = review[i].LastName;
-        let username = review[i].UserName;
-        let reviewText = review[i].ReviewText;
-        let concertDate = review[i].ConcertDate;
-        let tourName = review[i].TourName;
-        let venueName = review[i].VenueName;
-        let cityName = review[i].CityName;
+    for (let i in reviews){
+        console.log(reviews[i]);
+        let reviewTitle = reviews[i].ReviewTitle;
+        let reviewRating = reviews[i].ReviewRating;
+        let firstName = reviews[i].FirstName;
+        let lastName = reviews[i].LastName;
+        let username = reviews[i].UserName;
+        let reviewText = reviews[i].ReviewText;
+        let concertDate = reviews[i].ConcertDate;
+        let tourName = reviews[i].TourName;
+        let venueName = reviews[i].VenueName;
+        let cityName = reviews[i].CityName;
         reviewsDiv += "<div>";
         reviewsDiv += "<h3>" + reviewRating + "/10" + " - " + reviewTitle + " — " + firstName + " " + lastName + " (" + username + ")" + "</h3>";
         reviewsDiv += "<h4>" + artist.ArtistName + " @ " + venueName + ", " + cityName + " — " + concertDate + "</h4>";
