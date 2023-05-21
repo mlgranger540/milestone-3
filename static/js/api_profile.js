@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", async function(event) {
-    const reviews_res = await fetch(`/api/reviews/user/1`, {method:"GET"});
+    const user_res = await fetch("/api/user/current", {method:"GET"});
+    const user_json = await user_res.json();
+    const user = user_json;
+    var currentUserID = user.id;
+
+    const reviews_res = await fetch(`/api/reviews/user/${currentUserID}`, {method:"GET"});
     const reviews_json = await reviews_res.json();
     const reviews = reviews_json;
     reviews.sort((a,b)=>{return b.review_id-a.review_id});
