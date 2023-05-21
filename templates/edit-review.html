@@ -10,8 +10,8 @@
                 <h2 id="log-in-title" class="m-5 ps-3">Edit a Review</h2>
                 <div class="m-5">
                     <form method="PATCH" action="{{ url_for('review.patch_new_review', review_id=1) }}">
-                        <label for="review_dropdown" class="mt-2 form-label">Concert</label>
-                        <select class="form-control border border-dark-subtle" id="review_dropdown"></select>
+                        <label for="review_dropdown" class="mt-2 form-label">Review</label>
+                        <select class="form-control border border-dark-subtle" id="review_dropdown" name="concert_id"></select>
                         <div class="row">
                             <div class="col-10">
                                 <label for="review-title" class="mt-2 form-label">Review Title</label>
@@ -19,7 +19,7 @@
                             </div>
                             <div class="col-2">
                                 <label for="review-rating" class="ms-2 mt-2 form-label">Rating</label>
-                                <input type="number" min="0" max="10" id="ReviewRating" name="review-rating" class="ms-2 form-control border border-dark-subtle">
+                                <input type="number" min="0" max="10" id="review-rating" name="ReviewRating" class="ms-2 form-control border border-dark-subtle">
                             </div>
                         </div>
                         <label for="review-text" class="mt-2 form-label">What did you think?</label>

@@ -3,14 +3,15 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         console.log(data);
         let reviewDropdown = document.getElementById("review_dropdown");
         for (let i in data) {
-            reviewTitle = data[i].ReviewTitle;
-            artistName = data[i].ArtistName;
-            venueName = data[i].VenueName;
-            concertDate = data[i].ConcertDate;
-            reviewName = reviewTitle + " - " + artistName + " @ " + venueName + " " + concertDate;
+            let reviewTitle = data[i].ReviewTitle;
+            let artistName = data[i].ArtistName;
+            let venueName = data[i].VenueName;
+            let concertDate = data[i].ConcertDate;
+            let concertID = data[i].concert_id;
+            let reviewName = reviewTitle + " - " + artistName + " @ " + venueName + " " + concertDate;
             var option = document.createElement("option");
             option.text = reviewName;
-            option.value = data[i].review_id;
+            option.value = concertID;
             reviewDropdown.appendChild(option);
         }
     })

@@ -15,6 +15,7 @@ review = Blueprint('review', __name__)
 @review.post("/api/review/<int:user_id>")
 def post_new_review(user_id):
     r = Review(0,request.form["ReviewTitle"],request.form["ReviewText"],request.form["ReviewRating"],user_id,request.form["concert_id"])
+    return review_repo.add_review(r)
 
 
 # Get reviews for a given artist

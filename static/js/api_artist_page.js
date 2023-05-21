@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         reviewsDiv += "<h5>" + tourName + "</h5>";
         reviewsDiv += "<p>" + reviewText + "</p>";
         reviewsDiv += "</div>";
+        reviewsDiv += "<hr>";
     }
     reviewsDiv += "</div>";
     document.getElementById("artist-reviews").innerHTML = reviewsDiv;

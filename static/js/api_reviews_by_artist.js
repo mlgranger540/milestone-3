@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         console.log(data);
         let artistList = "<ul>";
         for (let i in data) {
-            artistName = data[i].ArtistName;
-            artistID = data[i].artist_id;
+            let artistName = data[i].ArtistName;
+            let artistID = data[i].artist_id;
             let url = `/artist/${artistID}`;
             artistList += `<li><a href="${url}">` + artistName + `</a></li>`;
         }

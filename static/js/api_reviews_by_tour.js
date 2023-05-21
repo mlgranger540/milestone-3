@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         });
         let tourList = "<ul>";
         for (let i in data) {
-            tourName = data[i].TourName;
+            let tourName = data[i].TourName;
             tourList += "<li>" + tourName + "</li>";
         }
         tourList += "</ul>";
