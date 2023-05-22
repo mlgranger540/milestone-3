@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+    <script src="{{ url_for('static', filename='js/api_delete_review.js') }}"></script>
+</header>
+    <section>
+        <div class="row">
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+            <div class="article col-10 col-lg-8 col-xxl-6">
+                <h2 id="log-in-title" class="m-5 ps-3">Delete a Review</h2>
+                <div class="m-5">
+                    <form id="delete-form" method="DELETE">
+                        <label for="review_dropdown" class="mt-2 form-label">Review</label>
+                        <select id="review_dropdown" class="form-control border border-dark-subtle" name="review_id""></select>
+                        <button id="delete-review-button" type="submit" class="my-3 px-4 btn btn-primary">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-1 col-lg-2 col-xxl-3"></div>
+        </div>
+    </section>
+{% endblock %}
