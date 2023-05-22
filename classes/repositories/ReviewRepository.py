@@ -6,7 +6,7 @@ from classes.models.ReviewExtended import ReviewExtended
 
 
 class ReviewRepository(Database):
-    # Get all review for a given user_id
+    # Get all reviews for a given user_id
     def get_reviews_for_user_id(self, user_id:int): 
         sql = """SELECT 
         public."Review"."review_id",
@@ -238,6 +238,45 @@ class ReviewRepository(Database):
         res = []
         for x in range(len(rows)):
             print(rows[x])
+            review = ReviewExtended(rows[x][0],rows[x][1],rows[x][2],rows[x][3],
+                                    rows[x][4],rows[x][5],rows[x][6],rows[x][7],
+                                    rows[x][8],rows[x][9],rows[x][10],rows[x][11],
+                                    rows[x][12],rows[x][13],rows[x][14],rows[x][15])
+            res.append(review)
+        return jsonpickle.encode(res, False)
+    
+    # Get review by review_id
+    def get_review_by_review_id(self, review_id:int): 
+        sql = """SELECT 
+        public."Review"."review_id",
+        public."Review"."ReviewTitle",
+        public."Review"."ReviewText",
+        public."Review"."ReviewRating",
+        public."Concert"."ConcertDate",
+        public."Users"."UserName",
+        public."Users"."FirstName",
+        public."Users"."LastName",
+        public."Venue"."VenueName",
+        public."City"."CityName",
+        public."Country"."CountryName",
+        public."Tour"."TourName",
+        public."Artist"."ArtistName",
+        public."Tour"."tour_id",
+        public."Venue"."venue_id",
+        public."Concert"."concert_id"
+        FROM public."Review" 
+        NATURAL JOIN public."Concert" 
+        NATURAL JOIN public."Venue"
+        NATURAL JOIN public."Tour"
+        NATURAL JOIN public."City"
+        NATURAL JOIN public."Country"
+        NATURAL JOIN public."Users"
+        NATURAL JOIN public."Artist"
+        WHERE review_id = %s;"""
+        data = (review_id, )
+        rows = self.get_data(sql,data,False)
+        res = []
+        for x in range(len(rows)):
             review = ReviewExtended(rows[x][0],rows[x][1],rows[x][2],rows[x][3],
                                     rows[x][4],rows[x][5],rows[x][6],rows[x][7],
                                     rows[x][8],rows[x][9],rows[x][10],rows[x][11],

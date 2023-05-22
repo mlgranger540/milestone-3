@@ -13,6 +13,7 @@ user_repo = UserRepository()
 user = Blueprint('user', __name__)
 
 
+# Get user_id of currently logged in user
 @user.get("/api/user/current")
 @login_required
 def get_id_of_user_logged_in():
@@ -21,11 +22,13 @@ def get_id_of_user_logged_in():
     return jsonpickle.encode(user_info, False)
 
 
+# Get user by id
 @user.get("/api/user/id/<int:user_id>")
 def get_user_by_id(user_id):
     return user_repo.get_user_by_id(user_id)
 
 
+# Get user by username
 @user.get("/api/user/username/<user_name>")
 def get_user_by_username(user_name):
     return user_repo.get_user_by_username_json(escape(user_name))

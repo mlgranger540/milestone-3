@@ -10,6 +10,7 @@ tour_repo = TourRepository()
 tour = Blueprint('tour', __name__)
 
 
+# Get all tours
 @tour.get("/api/tours")
 def get_all_tours():
     return tour_repo.get_all_tours()

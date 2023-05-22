@@ -13,6 +13,7 @@ user_repo = UserRepository()
 auth = Blueprint('auth', __name__)
 
 
+# Route to log in page
 @auth.route('/login', methods=['GET'])
 def login():
     return render_template('log-in.html')
@@ -44,10 +45,12 @@ def post_login():
     print("{} is logged in...".format(user.UserName))
     return redirect(url_for('index'))
 
+# Route to profile page
 @auth.route("/profile")
 def profile():
     return render_template("profile.html", user=current_user)
 
+# Log out user
 @auth.route('/logout')
 @login_required
 def logout():

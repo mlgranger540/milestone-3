@@ -48,6 +48,12 @@ def get_reviews_for_concert_id(concert_id):
     return review_repo.get_reviews_for_concert_id(concert_id)
 
 
+# Get review for a given review id
+@review.get("/api/review/<int:review_id>")
+def get_review_by_id(review_id):
+    return review_repo.get_review_by_review_id(review_id)
+
+
 # Get all reviews
 @review.get("/api/reviews")
 def get_all_reviews():
