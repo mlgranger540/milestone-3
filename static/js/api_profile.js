@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     reviews.sort((a,b)=>{return b.review_id-a.review_id});
     let reviewsDiv = "<div>";
     for (let i in reviews){
-        console.log(reviews[i]);
         let reviewTitle = reviews[i].ReviewTitle;
         let reviewRating = reviews[i].ReviewRating;
         let reviewText = reviews[i].ReviewText;

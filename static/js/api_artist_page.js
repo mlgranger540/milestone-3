@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     const artist_json = await artist_res.json();
     const artist = artist_json;
     let artistID = artist.artist_id;
-    console.log(artist.artist_id + " " + artist.ArtistName + " " + artist.genre_id);
     document.getElementById("artist-name").innerHTML = artist.ArtistName;
 
     const reviews_res = await fetch(`/api/reviews/${artistID}`, {method:"GET"});
@@ -11,7 +10,6 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     const reviews = reviews_json;
     let reviewsDiv = "<div>";
     for (let i in reviews){
-        console.log(reviews[i]);
         let reviewTitle = reviews[i].ReviewTitle;
         let reviewRating = reviews[i].ReviewRating;
         let firstName = reviews[i].FirstName;

@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function(event) {
     await fetch('/api/artists',{method:"GET"}).then(response => response.json()).then((data)=>{
-        console.log(data);
         let artistList = "<ul>";
         for (let i in data) {
             let artistName = data[i].ArtistName;
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", async function(event) {
             artistList += `<li><a href="${url}">` + artistName + `</a></li>`;
         }
         artistList += "</ul>";
-        console.log(artistList);
         document.getElementById("artist-names").innerHTML = artistList;
     })
 });

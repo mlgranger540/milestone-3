@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function(event) {
     await fetch('/api/concerts/extended',{method:"GET"}).then(response => response.json()).then((data)=>{
-        console.log(data);
         let concertDropdown = document.getElementById("concert_dropdown");
         for (let i in data) {
             let tourName = data[i].TourName;
