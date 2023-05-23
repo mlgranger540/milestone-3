@@ -13,15 +13,29 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 ### User Stories
 
 - Goals for visitors:
+
     - Log in and out of their account
-    - View posted concert reviews
+
+    - Have account data stored securely i.e. plain text passwords are not stored in the database
+
+    - View posted concert reviews to read about others' experiences at live music shows and get opinions on which artists are good to see live
+
     - Search/filter posted reviews by a variety of categories such as date posted, artist, tour and venue to find what they are looking for
+
     - Post a new review to the website
+
     - Visit their profile to see their posted reviews
+
     - Edit their posted reviews
+
     - Delete their posted reviews
+
+    - Trust that their reviews cannot be edited or deleted by another user
+
 - Goals for site owner:
+
     - Manage the site, users and database
+
     - View posted reviews on site and in the database
 
 ## Features
@@ -124,7 +138,7 @@ The delete button uses a Fetch request with the delete method to remove the revi
 - CSS3
 - JavaScript
 - Python with Flask
-- PostgreSQL
+- SQL (PostgreSQL)
 
 ### Frameworks, Libraries, External Stylesheets etc
 
@@ -132,4 +146,43 @@ The delete button uses a Fetch request with the delete method to remove the revi
 - [GitHub](https://github.com/) to store the project repository and back up git commits
 - [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to assist in creating the structure and design of the webpages
 - [Font Awesome](https://fontawesome.com/) for the search icon
+
+---
+
+## Testing
+
+### User Experience
+
+My project was tested thoroughly by myself and others throughout the development process to ensure that the application and its features worked as expected.
+
+- All the navigation links/buttons have been tested and go to the correct locations
+- Reviews displayed to the page all contain the correct information retrieved from the database
+- Only the logged in user's reviews are displayed on their profile and available for them to edit and delete, so no one can edit or delete someone else's review
+- Post, edit and delete buttons all function to post new reviews, patch existing reviews, and delete reviews from the database
+- All pages correctly bounce the visitor to the login page if they are not logged in
+- Login fails and flashes a message if user credentials do not match a user in the database
+- Log out button logs current user out successfully
+- Passwords are hashed before being stored in the database to avoid exposing sensitive log in details
+
+### Validation
+
+### Known Bugs
+
+As my database uses the free tier of ElephantSQL, there can be issues with retrieving data from the database when too many connections are attempted at the same time. This has been minimised by adding logic to close connections if any errors are encountered, as in previous versions these were being left open and causing lots of issues accessing the database during testing.
+
+---
+
+## Deployment
+
+The final project has been deployed to Heroku.
+
+---
+
+## Credits
+
+### Code
+
+### Content
+
+### Media
 
