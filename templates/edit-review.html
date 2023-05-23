@@ -11,23 +11,23 @@
                 <div class="m-5">
                     <form id="edit-form" method="PATCH">
                         <label for="review_dropdown" class="mt-2 form-label">Review</label>
-                        <select id="review_dropdown" class="form-control border border-dark-subtle" name="review_id""></select>
+                        <select id="review_dropdown" class="form-control border border-dark-subtle" name="review_id" required></select>
                         <label for="concert_dropdown" class="mt-2 form-label">Concert</label>
-                        <select id="concert_dropdown" class="form-control border border-dark-subtle" name="concert_id">
+                        <select id="concert_dropdown" class="form-control border border-dark-subtle" name="concert_id" required>
                             <option id="concert_option"></option>
                         </select>
                         <div class="row">
                             <div class="col-10">
                                 <label for="review-title" class="mt-2 form-label">Review Title</label>
-                                <input type="text" id="review-title" name="ReviewTitle" class="form-control border border-dark-subtle">
+                                <input type="text" id="review-title" name="ReviewTitle" class="form-control border border-dark-subtle" required>
                             </div>
                             <div class="col-2">
                                 <label for="review-rating" class="ms-2 mt-2 form-label">Rating</label>
-                                <input type="number" min="0" max="10" id="review-rating" name="ReviewRating" class="ms-2 form-control border border-dark-subtle">
+                                <input type="number" min="0" max="10" id="review-rating" name="ReviewRating" class="ms-2 form-control border border-dark-subtle" required>
                             </div>
                         </div>
                         <label for="review-text" class="mt-2 form-label">What did you think?</label>
-                        <textarea id="review-text" name="ReviewText" class="form-control border border-dark-subtle" rows="10"></textarea>
+                        <textarea id="review-text" name="ReviewText" class="form-control border border-dark-subtle" rows="10" required></textarea>
                         <button id="patch-review-button" type="submit" class="my-3 px-4 btn btn-primary">Edit</button>
                     </form>
                 </div>

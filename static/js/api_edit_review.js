@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     // Patch review button takes form data and submits it to patch review by id
     let patchReviewButton = document.getElementById("patch-review-button");
     patchReviewButton.addEventListener("click", async function(event) {
-        event.PreventDefault;
+        event.preventDefault();
         let editForm = document.getElementById("edit-form");
         const formData = new FormData(editForm, patchReviewButton);
         formData.append("user_id", `${currentUserID}`);

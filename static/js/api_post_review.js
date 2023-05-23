@@ -22,12 +22,11 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         concertDropdown.appendChild(option);
     }
 
-    // Post review button takes form data and submits it to add a new review to the database
-    let postReviewButton = document.getElementById("post-review-button");
-    postReviewButton.addEventListener("click", async function(event) {
-        event.PreventDefault;
-        let postForm = document.getElementById("post-form");
-        const formData = new FormData(postForm, postReviewButton);
+    // Post submit event listener takes form data and submits it to add a new review to the database
+    let postForm = document.getElementById("post-form");
+    postForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        const formData = new FormData(postForm);
         await fetch(`/api/review/${currentUserID}`, {method:"POST", body: formData}).then((response) => {
             if (response.status === 200) {
                 let modalTrigger = document.getElementById("success-modal-trigger");

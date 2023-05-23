@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     // Delete review button gets review id from form data to delete chosen review
     let deleteReviewButton = document.getElementById("delete-review-button");
     deleteReviewButton.addEventListener("click", async function(event) {
-        event.PreventDefault;
+        event.preventDefault();
         let deleteForm = document.getElementById("delete-form");
         const formData = new FormData(deleteForm);
         let reviewID = formData.get("review_id");
