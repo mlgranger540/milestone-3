@@ -1,6 +1,6 @@
 # Gigaholic Web App
 
-This project is a web application for posting reviews of live music concerts. It uses a relational database to collect, store, modify and delete concert review data with PostgreSQL, and is served by Flask.
+This project is a web application for posting reviews of live music concerts. It uses a relational database to collect, store, modify and delete concert review data with PostgreSQL, and is served by Flask. The final project is hosted on Heroku.
 
 ![Gigaholic](static/docs/readme-images/landing.png)
 
@@ -10,7 +10,7 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 
 ## UX
 
-### Goals
+### User Stories
 
 - Goals for visitors:
     - Log in and out of their account
@@ -68,13 +68,68 @@ These are also links which, when clicked, take you to a page that displays all t
 
 ![Artist Reviews](static/docs/readme-images/artist-reviews.png)
 
-This review list is built in a similar way, by using the window pathname to make a Fetch call to retrieve the review data for the chosen artist, which is looped through to build the review divs and display them on the page.
+This review list is built in a similar way, by using the window pathname to make a Fetch request to retrieve the review data for the chosen artist, which is looped through to build the review divs and display them on the page.
+
+### Reviews by Tour
+
+### Reviews by Venue
 
 ### Profile
 
 ![Profile](static/docs/readme-images/profile.png)
 
-When a user visits their profile, they are able to see a list of all the reviews they have posted. This is achieved by using Flask's current user to get the user ID of the currently logged in user with a Fetch call, followed by another Fetch to get the reviews for that user ID and display them to the page in the usual way.
+When a user visits their profile, they are able to see a list of all the reviews they have posted. This is achieved by using Flask's current user to get the user ID of the currently logged in user with a Fetch request, followed by another Fetch to get the reviews for that user ID and display them to the page in the usual way.
 
 Beneath this are buttons that allow the user to post a new review, edit their existing reviews, and delete their reviews.
+
+### Post Review Form
+
+![Post Review Form](static/docs/readme-images/post-form.png)
+
+When a user clicks the post a review button on any page, they are redirected to the post review form. This allows the user to pick a concert from a dropdown list built by fetching all the concerts currently in the database and appending them as options to a select element. The user is then required to fill in a review title, a rating which has to be a number between 0 and 10, and their review text.
+
+The submit button then passes the form data to JavaScript with an event listener, and Fetch is used to post this data as a new review to the database. If the Fetch request has been completed successfully, a modal is displayed to indicate this to the user, and closing the modal redirects them to the landing page.
+
+### Edit Review Form
+
+![Edit Review Form](static/docs/readme-images/edit-form.png)
+
+Similarly, clicking the edit reviews button redirects the user to the edit review form. This uses the current user's ID to fetch all their posted reviews and build a dropdown. The concert ID is also attached to each option in the review dropdown, and this is used to get the associated concert information for the currently selected review, to then update the option in the concert dropdown accordingly. The review ID of the selected reivew is used get the data for that review and then pre-populate the form fields with the current review title, rating and text so they can then be edited. These updates happen both when the content is loaded and when the review dropdown is changed.
+
+As with the post form, JavaScript is then used to submit this data, but this time with a patch method in order to update the review with the ID passed in, and success modal is displayed is this request was successful. Closing this redirects the user to their profile.
+
+### Delete Review Form
+
+![Delete Review Form](static/docs/readme-images/delete-form.png)
+
+The delete form page uses the same method as the edit page to build a dropdown of the user's existing reviews.
+
+The delete button uses a Fetch request with the delete method to remove the review with the ID passed in from the database. Again, a success modal is displayed and redirects to the user's profile when closed.
+
+### Improvements and Features to Add
+
+- Unfortunately due to time constraints is was unable to completely finish all features and pages of this application.
+
+---
+
+## Design
+
+---
+
+## Technologies
+
+### Languages
+
+- HTML5
+- CSS3
+- JavaScript
+- Python with Flask
+- PostgreSQL
+
+### Frameworks, Libraries, External Stylesheets etc
+
+- [Git](https://git-scm.com/) for version control
+- [GitHub](https://github.com/) to store the project repository and back up git commits
+- [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to assist in creating the structure and design of the webpages
+- [Font Awesome](https://fontawesome.com/) for the search icon
 
