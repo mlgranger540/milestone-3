@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     const artist_json = await artist_res.json();
     const artist = artist_json;
     let artistID = artist.artist_id;
-    document.getElementById("artist-name").innerHTML = artist.ArtistName;
+    document.getElementById("artist-name").innerHTML = "Reviews for " + artist.ArtistName;
 
     const reviews_res = await fetch(`/api/reviews/${artistID}`, {method:"GET"});
     const reviews_json = await reviews_res.json();
