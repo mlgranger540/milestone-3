@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", async function(event) {
+    // Get id of currently logged in user
     const user_res = await fetch("/api/user/current", {method:"GET"});
     const user_json = await user_res.json();
     const user = user_json;
     var currentUserID = user.id;
 
+    // Use current user id to build dropdown of their existing reviews
     const reviews_res = await fetch(`/api/reviews/user/${currentUserID}`,{method:"GET"});
     const reviews_json = await reviews_res.json();
     const reviews = reviews_json;
@@ -22,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         reviewDropdown.appendChild(option);
     }
 
+    // Use currently selected dropdown option to fetch concert id and update concert dropdown option
     let selectedOption = event.target.forms[0][0].selectedOptions[0];
     let concertID = selectedOption.id;
     const concert_res = await fetch(`/api/concert/id/extended/${concertID}`,{method:"GET"});
@@ -35,6 +38,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     concertOption.text = concertName;
     concertOption.value = concertID;
 
+    // Use id of selected review to pre-populate form fields with existing review data
     let reviewID = reviewDropdown.value;
     let titleField = document.getElementById("review-title");
     let ratingField = document.getElementById("review-rating");
@@ -46,6 +50,7 @@ document.addEventListener("DOMContentLoaded", async function(event) {
     ratingField.value = review_by_id[0].ReviewRating;
     textField.value = review_by_id[0].ReviewText;
 
+    // Fill out concert dropdown and form fields also when review dropdown is changed
     reviewDropdown.addEventListener("change", async function(event) {
         let selectedOption = event.target.selectedOptions[0];
         let concertID = selectedOption.id;
@@ -72,13 +77,19 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         textField.value = review_by_id[0].ReviewText;
     })
 
+    // Patch review button takes form data and submits it to patch review by id
     let patchReviewButton = document.getElementById("patch-review-button");
     patchReviewButton.addEventListener("click", async function(event) {
         event.PreventDefault;
-        let form = document.getElementById("edit-form");
-        const formData = new FormData(form, patchReviewButton);
+        let editForm = document.getElementById("edit-form");
+        const formData = new FormData(editForm, patchReviewButton);
         formData.append("user_id", `${currentUserID}`);
         let reviewID = formData.get("review_id");
-        await fetch(`/api/review/${reviewID}`, {method:"PATCH", body: formData});
+        await fetch(`/api/review/${reviewID}`, {method:"PATCH", body: formData}).then((response) => {
+            if (response.status === 200) {
+                let modalTrigger = document.getElementById("success-modal-trigger");
+                modalTrigger.click();
+            }
+        })
     })
 });

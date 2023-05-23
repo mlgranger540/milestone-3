@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", async function(event) {
+    // Get id of currently logged in user
     const user_res = await fetch("/api/user/current", {method:"GET"});
     const user_json = await user_res.json();
     const user = user_json;
     var currentUserID = user.id;
 
+    // Use current user id to build dropdown of their existing reviews
     const reviews_res = await fetch(`/api/reviews/user/${currentUserID}`,{method:"GET"});
     const reviews_json = await reviews_res.json();
     const reviews = reviews_json;
@@ -22,11 +24,12 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         reviewDropdown.appendChild(option);
     }
 
+    // Delete review button gets review id from form data to delete chosen review
     let deleteReviewButton = document.getElementById("delete-review-button");
     deleteReviewButton.addEventListener("click", async function(event) {
         event.PreventDefault;
-        let form = document.getElementById("delete-form");
-        const formData = new FormData(form);
+        let deleteForm = document.getElementById("delete-form");
+        const formData = new FormData(deleteForm);
         let reviewID = formData.get("review_id");
         await fetch(`/api/review/${reviewID}`, {method:"DELETE"});
     })
