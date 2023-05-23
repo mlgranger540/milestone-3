@@ -1,39 +1,69 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Gigaholic Web App
 
-Welcome,
+This project is a web application for posting reviews of live music concerts. It uses a relational database to collect, store, modify and delete concert review data with PostgreSQL, and is served by Flask.
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Gigaholic](static/docs/readme-images/landing.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **March 3rd, 2023**
-
-## Codeanywhere Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+View the live project [here](https://gigaholic.herokuapp.com/)
 
 ---
 
-Happy coding!
+## UX
+
+### Goals
+
+- Goals for visitors:
+    - Log in and out of their account
+    - View posted concert reviews
+    - Search/filter posted reviews by a variety of categories such as date posted, artist, tour and venue to find what they are looking for
+    - Post a new review to the website
+    - Visit their profile to see their posted reviews
+    - Edit their posted reviews
+    - Delete their posted reviews
+- Goals for site owner:
+    - Manage the site, users and database
+    - View posted reviews on site and in the database
+
+## Features
+
+### Header and Navbar
+
+![Header and Nav](static/docs/readme-images/header-nav.png)
+
+The header is a simple title bar featuring the name of the site and, depending on whether the user is logged in or not, either a log in button or a profile button and a log out button. Clicking the site name will take you to the landing page.
+
+Underneath is a navbar with links to the landing page, which shows recently posted reviews, and pages to get reviews filtered by artist, tour and venue. The active tab is changed according to the current window pathname using a switch case statement in JavaScript.
+
+### Log In Page
+
+![Log In Page](static/docs/readme-images/login.png)
+
+If a visitor tries to access a page of the site without being logged in, they will be redirected to the log in page. If incorrect credentials are used, a message is flashed to indicate this.
+
+There is currently no site feature to create users, so at present this can only be done by directly adding a new user into the database.
+
+Passwords are hashed before being stored in the database to avoid plain text passwords being discoverable.
+
+### Hero
+
+![Hero](static/docs/readme-images/search-post-hero.png)
+
+The landing page features a hero image from a concert. Within this is a search bar and a greeting which is personalised to the user, and a post review button. On the other review pages, this feature is still present but is smaller to take up less space on the page and bring more focus to the reviews themselves.
+
+The search button currently doesn't work as unfortunately I didn't have time to implement this feature, however the post button does and will bring you to the post review page.
+
+### Recent Reviews
+
+![Recent](static/docs/readme-images/recent.png)
+
+The landing page features the most recently posted reviews. This is achieved by using the Fetch API in JavaScript to 
+
+### Reviews by Artist
+
+![Reviews by Artist](static/docs/readme-images/by-artist.png)
+
+![Artist Reviews](static/docs/readme-images/artist-reviews.png)
+
+### Profile
+
+![Profile](static/docs/readme-images/profile.png)
