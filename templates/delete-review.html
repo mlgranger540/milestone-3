@@ -19,18 +19,18 @@
             <div class="col-1 col-lg-2 col-xxl-3"></div>
         </div>
         <button type="button" id="success-modal-trigger" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#success-modal" hidden>Modal</button>
-        <div id="success-modal" class="modal fade" tabindex="-1" aria-labelledby="requestSuccess" aria-hidden="true">
+        <div id="success-modal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="requestSuccess" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h2 class="modal-title fs-5" id="requestSuccess">Success!</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h2 id="requestSuccess" class="modal-title fs-5 mt-3 ms-3">Success!</h1>
+                  <button type="button" id="modal-close-1" class="btn-close mt-3 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Your review was deleted!</p>
+                    <p class="ms-3">Your review was deleted!</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" id="modal-close-2" class="btn btn-secondary mb-3 me-3" data-bs-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>

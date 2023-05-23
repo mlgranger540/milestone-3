@@ -28,10 +28,21 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         event.preventDefault();
         const formData = new FormData(postForm);
         await fetch(`/api/review/${currentUserID}`, {method:"POST", body: formData}).then((response) => {
+            // If form is successfully submitted, a modal is displayed indicating this to the user
             if (response.status === 200) {
                 let modalTrigger = document.getElementById("success-modal-trigger");
                 modalTrigger.click();
             }
         })
     })
+
+    // Closing success modal redirects user to the homepage
+    let modalClose1 = document.getElementById("modal-close-1");
+    let modalClose2 = document.getElementById("modal-close-2");
+    modalClose1.addEventListener("click", redirectIndex);
+    modalClose2.addEventListener("click", redirectIndex);
+
+    function redirectIndex(){
+        window.location.pathname = "/";
+    }
 });

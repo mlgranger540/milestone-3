@@ -86,10 +86,21 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         formData.append("user_id", `${currentUserID}`);
         let reviewID = formData.get("review_id");
         await fetch(`/api/review/${reviewID}`, {method:"PATCH", body: formData}).then((response) => {
+            // If form is successfully submitted, a modal is displayed indicating this to the user
             if (response.status === 200) {
                 let modalTrigger = document.getElementById("success-modal-trigger");
                 modalTrigger.click();
             }
         })
     })
+
+    // Closing success modal redirects user to their profile
+    let modalClose1 = document.getElementById("modal-close-1");
+    let modalClose2 = document.getElementById("modal-close-2");
+    modalClose1.addEventListener("click", redirectProfile);
+    modalClose2.addEventListener("click", redirectProfile);
+
+    function redirectProfile(){
+        window.location.pathname = "/profile";
+    }
 });
