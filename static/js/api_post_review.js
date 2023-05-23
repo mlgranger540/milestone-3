@@ -28,6 +28,11 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         event.PreventDefault;
         let postForm = document.getElementById("post-form");
         const formData = new FormData(postForm, postReviewButton);
-        await fetch(`/api/review/${currentUserID}`, {method:"POST", body: formData});
+        await fetch(`/api/review/${currentUserID}`, {method:"POST", body: formData}).then((response) => {
+            if (response.status === 200) {
+                let modalTrigger = document.getElementById("success-modal-trigger");
+                modalTrigger.click();
+            }
+        })
     })
 });

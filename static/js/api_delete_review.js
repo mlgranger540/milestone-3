@@ -31,6 +31,11 @@ document.addEventListener("DOMContentLoaded", async function(event) {
         let deleteForm = document.getElementById("delete-form");
         const formData = new FormData(deleteForm);
         let reviewID = formData.get("review_id");
-        await fetch(`/api/review/${reviewID}`, {method:"DELETE"});
+        await fetch(`/api/review/${reviewID}`, {method:"DELETE"}).then((response) => {
+            if (response.status === 200) {
+                let modalTrigger = document.getElementById("success-modal-trigger");
+                modalTrigger.click();
+            }
+        })
     })
 });

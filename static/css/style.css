@@ -123,6 +123,11 @@ form, #log-in-title {
     width: 45%;
 }
 
+/* Modal */
+.modal-header, .modal-footer {
+    border: none;
+}
+
 /* Footer */
 #footer {
     background-color: #700e28;
