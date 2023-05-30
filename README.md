@@ -20,9 +20,9 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 
     - View posted concert reviews to read about others' experiences at live music shows and get opinions on which artists are good to see live
 
-    - Search/filter posted reviews by a variety of categories such as date posted, artist, tour and venue to find what they are looking for
+    - Search/filter posted reviews by a variety of categories such as date posted, artist, tour and venue to easily find what they are looking for
 
-    - Post a new review to the website
+    - Post their own new reviews to the website
 
     - Visit their profile to see their posted reviews
 
@@ -38,6 +38,8 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 
     - View posted reviews on site and in the database
 
+    - Use the site themselves to add their own concert reviews
+
 ## Features
 
 ### Header and Navbar
@@ -46,7 +48,7 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 
 The header is a simple title bar featuring the name of the site and, depending on whether the user is logged in or not, either a log in button or a profile button and a log out button. Clicking the site name will take you to the landing page.
 
-Underneath is a navbar with links to the landing page, which shows recently posted reviews, and pages to get reviews filtered by artist, tour and venue. The active tab is changed according to the current window pathname using a switch case statement in JavaScript.
+Underneath is a navbar with links to the landing page, which shows recently posted reviews, and pages to get reviews filtered by artist, tour and venue. As the pages are built off a template, the active tab is changed according to the current window pathname using a switch case statement in JavaScript.
 
 ### Log In Page
 
@@ -70,9 +72,9 @@ The search button currently doesn't work as unfortunately I didn't have time to 
 
 ![Recent](static/docs/readme-images/recent.png)
 
-The landing page displays the most recently posted reviews. This is achieved by using the Fetch API in JavaScript to retrieve all the reviews from the database, converting this data into JSON objects, and then sorted by the review ID in descending order to show newest posted reviews first. This data is looped through to build a div for each review containing the review rating, title, and body text, as well as associated information about the artist and tour, the concert date and location, and the user who posted the review. This list of reviews is then inserted into the HTML document to be viewable by the user.
+The landing page displays the most recently posted reviews. This is achieved by using the Fetch API in JavaScript to retrieve all the reviews from the database, converting this data into JSON objects, and then sorting by the review ID in descending order to show newest posted reviews first. This data is looped through to build a div for each review containing the review rating, title, and body text, as well as associated information about the artist and tour, the concert date and location, and the user who posted the review. This list of reviews is then inserted into the HTML document to be viewable by the user.
 
-### Reviews by Artist
+### Reviews by Pages
 
 ![Reviews by Artist](static/docs/readme-images/by-artist.png)
 
@@ -84,9 +86,7 @@ These are also links which, when clicked, take you to a page that displays all t
 
 This review list is built in a similar way, by using the window pathname to make a Fetch request to retrieve the review data for the chosen artist, which is looped through to build the review divs and display them on the page.
 
-### Reviews by Tour
-
-### Reviews by Venue
+The Reviews by Tour and Reviews by Venue tabs are unfinished, but would have behaved in much the same way, retrieving all the tours and venues from the database, displaying them in an alphabetised list, and when clicked would take the user to a page showing all the reviews in the database for that tour/venue.
 
 ### Profile
 
@@ -100,7 +100,7 @@ Beneath this are buttons that allow the user to post a new review, edit their ex
 
 ![Post Review Form](static/docs/readme-images/post-form.png)
 
-When a user clicks the post a review button on any page, they are redirected to the post review form. This allows the user to pick a concert from a dropdown list built by fetching all the concerts currently in the database and appending them as options to a select element. The user is then required to fill in a review title, a rating which has to be a number between 0 and 10, and their review text.
+When a user clicks the 'post a review' button on any page, they are redirected to the post review form. This allows the user to pick a concert from a dropdown list built by fetching all the concerts currently in the database and appending them as options to a select element. The user is then required to fill in a review title, a rating (which has to be a number between 0 and 10), and their review text.
 
 The submit button then passes the form data to JavaScript with an event listener, and Fetch is used to post this data as a new review to the database. If the Fetch request has been completed successfully, a modal is displayed to indicate this to the user, and closing the modal redirects them to the landing page.
 
@@ -110,7 +110,7 @@ The submit button then passes the form data to JavaScript with an event listener
 
 Similarly, clicking the edit reviews button redirects the user to the edit review form. This uses the current user's ID to fetch all their posted reviews and build a dropdown. The concert ID is also attached to each option in the review dropdown, and this is used to get the associated concert information for the currently selected review, to then update the option in the concert dropdown accordingly. The review ID of the selected reivew is used get the data for that review and then pre-populate the form fields with the current review title, rating and text so they can then be edited. These updates happen both when the content is loaded and when the review dropdown is changed.
 
-As with the post form, JavaScript is then used to submit this data, but this time with a patch method in order to update the review with the ID passed in, and success modal is displayed is this request was successful. Closing this redirects the user to their profile.
+As with the post form, JavaScript is then used to submit this data, but this time with a patch method in order to update the review with the ID passed in, and success modal is displayed if this request was successful. Closing this redirects the user to their profile.
 
 ### Delete Review Form
 
@@ -122,11 +122,28 @@ The delete button uses a Fetch request with the delete method to remove the revi
 
 ### Improvements and Features to Add
 
-- Unfortunately due to time constraints is was unable to completely finish all features and pages of this application.
+Unfortunately due to time constraints I was unable to completely finish all features and pages of this application. Some of the features I wanted to add are:
+
+- The search bar would ideally allow you to search all the reviews in the database and return all the reviews containing your search, but this feature doesn't currently work.
+- All aspects of a review should be clickable - for instance, clicking the artist in a review should bring you to the artist page showing all reviews for that artist; clicking the username should bring you to the profile of that user with all their reviews; clicking the venue should bring to the venue page for concert played at that location. At the moment this isn't the case and reviews are just read-only and not able to be interacted with.
+- I was originally thinking of having the ability to link songs that were played at the concert into the review, but had to skip this feature to focus on the reviews themselves.
+- At the moment a user can only edit and delete reviews from their profile - ideally there should be an edit and delete button on the reviews themselves, but this would have been more time consuming to implement so I had to limit it to just the profile for now
 
 ---
 
-## Design
+## Design and Planning
+
+### Website
+
+The design of the website was mapped out using a wireframe, before using HTML, CSS and Bootstrap to replicate it in the live project.
+
+![Gigaholic Wireframe](static/docs/wireframes/gigaholic-wireframe.png)
+
+### Database
+
+I used Excel to create this mockup of the database prior to starting this project, in order to get an idea of the tables I would need to create and how they would be connected through primary and foreign keys.
+
+![Gigaholic Database Mockup](static/docs/erds/database-mockup.png)
 
 ---
 
@@ -146,6 +163,7 @@ The delete button uses a Fetch request with the delete method to remove the revi
 - [GitHub](https://github.com/) to store the project repository and back up git commits
 - [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to assist in creating the structure and design of the webpages
 - [Font Awesome](https://fontawesome.com/) for the search icon
+- [Justinmind](https://www.justinmind.com/) to create the wireframe
 
 ---
 
@@ -184,5 +202,8 @@ The final project has been deployed to Heroku.
 
 ### Content
 
+All review content created by myself and other testers.
+
 ### Media
 
+[This](https://www.pexels.com/photo/people-at-concert-1105666/) image from Pexels is used for the hero image.
