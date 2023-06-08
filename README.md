@@ -184,6 +184,14 @@ My project was tested thoroughly by myself and others throughout the development
 
 ### Validation
 
+The website passed through the [W3C validator](https://validator.w3.org/) with no issues when using its URI. When each HTML page was checked by direct input, there were some errors, but only those to do with the Flask templating used as these are of course not recognised as standard HTML.
+
+![HTML Validated](static/docs/readme-images/html-validated.png)
+
+The CSS passed through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/) with no issues when checked by direct input. When the site URI was used, some errors were found, but only those to do with Bootstrap's CSS.
+
+![CSS Validated](static/docs/readme-images/css-validated.png)
+
 ### Known Bugs
 
 As my database uses the free tier of ElephantSQL, there can be issues with retrieving data from the database when too many connections are attempted at the same time. This has been minimised by adding logic to close connections if any errors are encountered, as in previous versions these were being left open and causing lots of issues accessing the database during testing.
