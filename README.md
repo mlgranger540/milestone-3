@@ -216,6 +216,8 @@ The final project has been deployed to Heroku.
 
 [This stackoverflow post](https://stackoverflow.com/questions/7478366/create-dynamic-urls-in-flask-with-url-for/35936261#35936261) was used to further my understanding of dynamic URLs in Flask.
 
+I used guidance from [W3Schools](https://www.w3schools.com/js/js_array_sort.asp) on sorting arrays in order to sort the lists of reviews by review ID and the list of tours alphabetically.
+
 ### Content
 
 All review content was created by myself and other testers.
