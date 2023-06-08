@@ -192,6 +192,10 @@ The CSS passed through the [Jigsaw validator](https://jigsaw.w3.org/css-validato
 
 ![CSS Validated](static/docs/readme-images/css-validated.png)
 
+### Accessibility
+
+[WAVE](https://wave.webaim.org/) was used to assess the accessbility of the website.
+
 ### Known Bugs
 
 As my database uses the free tier of ElephantSQL, there can be issues with retrieving data from the database when too many connections are attempted at the same time. This has been minimised by adding logic to close connections if any errors are encountered, as in previous versions these were being left open and causing lots of issues accessing the database during testing.
@@ -208,9 +212,13 @@ The final project has been deployed to Heroku.
 
 ### Code
 
+[This guide](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login) was used to help set up my Flask login system.
+
+[This stackoverflow post](https://stackoverflow.com/questions/7478366/create-dynamic-urls-in-flask-with-url-for/35936261#35936261) was used to further my understanding of dynamic URLs in Flask.
+
 ### Content
 
-All review content created by myself and other testers.
+All review content was created by myself and other testers.
 
 ### Media
 
