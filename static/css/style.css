@@ -1,7 +1,7 @@
 /* Global */
 h1 {
-    /* color: #87041a; */
-    color: #d54d2f;
+    color: #e65b3c;
+    /* color: #d54d2f; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 500;
     text-shadow: 2px 2px 5px #570906;
@@ -27,13 +27,12 @@ ul {
 
 /* Header */
 #header {
-    /* background-color: #d16b18; */
     background-color: #700e28;
 }
 
 .user-options {
     float: right;
-    color: #d54d2f;
+    color: #e65b3c;
     font-size: 130%;
 }
 
@@ -138,7 +137,7 @@ form, #log-in-title {
 }
 
 .foot-link {
-    --bs-nav-link-color: #d54d2f;
+    --bs-nav-link-color: #e65b3c;
 }
 
 .foot-link:hover {
