@@ -1,7 +1,6 @@
 /* Global */
 h1 {
-    color: #e65b3c;
-    /* color: #d54d2f; */
+    color: #e75e3f;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 500;
     text-shadow: 2px 2px 5px #570906;
@@ -32,12 +31,12 @@ ul {
 
 .user-options {
     float: right;
-    color: #e65b3c;
+    color: #ee6243;
     font-size: 130%;
 }
 
 .user-options:hover {
-    color: #eb8b76;
+    color: #ff8a54;
 }
 
 /* Navbar */
@@ -137,9 +136,9 @@ form, #log-in-title {
 }
 
 .foot-link {
-    --bs-nav-link-color: #e65b3c;
+    --bs-nav-link-color: #ff7d60;
 }
 
 .foot-link:hover {
-    --bs-nav-link-hover-color: #eb8b76;
+    --bs-nav-link-hover-color: #ff9d70;
 }
