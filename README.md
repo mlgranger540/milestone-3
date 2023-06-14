@@ -212,11 +212,13 @@ The final project has been deployed to Heroku.
 
 ### Code
 
+This [stackoverflow post](https://stackoverflow.com/questions/7478366/create-dynamic-urls-in-flask-with-url-for/35936261#35936261) was used to further my understanding of dynamic URLs in Flask.
+
 [This guide](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login) was used to help set up my Flask login system.
 
-[This stackoverflow post](https://stackoverflow.com/questions/7478366/create-dynamic-urls-in-flask-with-url-for/35936261#35936261) was used to further my understanding of dynamic URLs in Flask.
+I used [guidance from W3Schools](https://www.w3schools.com/js/js_array_sort.asp) on sorting arrays in order to sort the lists of reviews by review ID and the list of tours alphabetically.
 
-I used guidance from [W3Schools](https://www.w3schools.com/js/js_array_sort.asp) on sorting arrays in order to sort the lists of reviews by review ID and the list of tours alphabetically.
+I also referred to the [W3Schools guidance](https://www.w3schools.com/jsref/event_preventdefault.asp) on the prevent default method, as well as [this stackoverflow post](https://stackoverflow.com/questions/46640024/how-do-i-post-form-data-with-fetch-api/46642899#46642899) and the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData) on form data when submitting my forms using JavaScript and the Fetch API.
 
 ### Content
 
