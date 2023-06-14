@@ -194,7 +194,9 @@ The CSS passed through the [Jigsaw validator](https://jigsaw.w3.org/css-validato
 
 ### Accessibility
 
-[WAVE](https://wave.webaim.org/) was used to assess the accessbility of the website.
+[WAVE](https://wave.webaim.org/) was used to assess the accessbility of the website. No errors or alerts were given, and only one contrast error was found.
+
+![WAVE Accessibility](static/docs/readme-images/accessibility.png)
 
 ### Known Bugs
 
