@@ -210,7 +210,11 @@ As my database uses the free tier of ElephantSQL, there can be issues with retri
 
 ## Deployment
 
-The final project has been deployed to Heroku.
+The final project has been deployed to Heroku. To do this, I created a Heroku continuous delivery (CD) pipeline to run the application with one dyno. The pipeline is connected to the main branch of the project's GitHub repository, so whenever new code is committed and pushed to GitHub, it is automatically deployed by Heroku to the live project. As this is a solo project, I have been committing my changes directly to the main branch, however in multi-person projects it would be better to work in a separate branch, then create a pull request to merge changes into the main branch after testing.
+
+To run the application, I have created a Procfile which runs the run.py script using Gunicorn to forward client requests to the Flask server within run.py. HTTPS has been enabled on the pipeline using the Heroku automatic SSL certificate setting, ensuring connections to the site from the client are encrypted. All PIP packages to allow the Flask server to run are contained in a requirements.txt file which Heroku then installs when it builds the dyno.
+
+With more time, the deployment process could be improved to have two dynos, one pulling from a development branch automatically, and the main one only being updated manually when development has been fully tested. Automatic continuous integration (CI) testing could also be set up so that builds are tested before Heroku tries to deploy them.
 
 ---
 
