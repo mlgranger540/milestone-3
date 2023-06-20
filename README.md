@@ -182,6 +182,10 @@ My project was tested thoroughly by myself and others throughout the development
 - Log out button logs current user out successfully
 - Passwords are hashed before being stored in the database to avoid exposing sensitive log in details
 
+### Responsiveness
+
+The use of Bootstrap has helped to make this website somewhat responsive, however unfortunately, due to time constraints on this project, I was unable to make it fully responsive in its current state. It is usable on all screen sizes, however the sizing of things such as fonts makes the appearance rather unappealing. This is something I would like to improve in the future, but at this stage I had to prioritise the functionality and the database as that is the main focus of this project.
+
 ### Validation
 
 The website passed through the [W3C validator](https://validator.w3.org/) with no issues when using its URI. When each HTML page was checked by direct input, there were some errors, but only those to do with the Flask templating used as these are of course not recognised as standard HTML.
