@@ -43,7 +43,6 @@ def get_all_artists_extended():
 
 # Route to artist page using artist_id
 @artist.route("/artist/<int:artist_id>")
-@login_required
 def artist_reviews(artist_id):
     artist = artist_repo.get_artist_by_id(artist_id)
     return render_template("artist.html", artist=artist, user=current_user)

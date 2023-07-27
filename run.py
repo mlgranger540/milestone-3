@@ -42,26 +42,21 @@ def load_user(user_id):
 
 # Page routes
 @app.route("/")
-@login_required
 def index():
-    print(current_user)
     return render_template("index.html", user=current_user)
 
 
 @app.route("/reviews_by_artist")
-@login_required
 def by_artist():
     return render_template("reviews-by-artist.html", user=current_user)
 
 
 @app.route("/reviews_by_tour")
-@login_required
 def by_tour():
     return render_template("reviews-by-tour.html", user=current_user)
 
 
 @app.route("/reviews_by_venue")
-@login_required
 def by_venue():
     return render_template("reviews-by-venue.html", user=current_user)
 
