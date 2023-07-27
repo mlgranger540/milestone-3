@@ -143,6 +143,9 @@ When a user clicks the 'Post a review' button on any page or 'Post new review' o
 
 The submit button then passes the form data to JavaScript with an event listener, and Fetch is used to post this data as a new review to the database. If the Fetch request has been completed successfully, a modal is displayed to indicate this to the user, and closing the modal redirects them to the landing page, where they can see their review amongst the newly posted reviews.
 
+![Posted Success Modal](static/docs/readme-images/posted.png)
+![Database Entry Created](static/docs/readme-images/db-created.png)
+
 This feature demonstrates Create functionality in this project.
 
 ### Read - Review Pages and Profile
@@ -159,6 +162,9 @@ Similar to the post review buttons, clicking the 'Edit your reviews' button on a
 
 As with the post form, JavaScript is then used to submit this data, but this time with a patch method in order to update the review with the ID passed in, and success modal is displayed if this request was successful. Closing this redirects the user to their profile.
 
+![Edited Success Modal](static/docs/readme-images/edited.png)
+![Database Entry Updated](static/docs/readme-images/db-updated.png)
+
 This feature demonstrates Update functionality.
 
 ### Delete - Delete Review Form
@@ -168,6 +174,9 @@ This feature demonstrates Update functionality.
 The delete form page uses the same method as the edit page to build a dropdown of the user's existing reviews.
 
 The delete button uses a Fetch request with the delete method to remove the review with the ID passed in from the database. Again, a success modal is displayed and redirects to the user's profile when closed.
+
+![Deleted Success Modal](static/docs/readme-images/deleted.png)
+![Database Entry Deleted](static/docs/readme-images/db-deleted.png)
 
 This feature demonstrates Delete functionality.
 
