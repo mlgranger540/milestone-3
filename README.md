@@ -50,8 +50,9 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 
 The design of the website was mapped out using wireframes, before using HTML, CSS and Bootstrap to replicate it in the live project.
 
-<img width="70%" style="display: block; margin: auto;" src="static/docs/wireframes/gigaholic-wireframe.png" alt="Gigaholic Home Wireframe">
-<img width="45%" src="static/docs/wireframes/by-artist-wireframe.png" alt="Reviews By Artist Wireframe"><img width="53%" src="static/docs/wireframes/profile-wireframe.png" alt="Profile Wireframe">
+<img width="70%" src="static/docs/wireframes/gigaholic-wireframe.png" alt="Gigaholic Home Wireframe">
+
+<img width="46%" src="static/docs/wireframes/by-artist-wireframe.png" alt="Reviews By Artist Wireframe"><img width="54%" src="static/docs/wireframes/profile-wireframe.png" alt="Profile Wireframe">
 
 I used a hero image showing a concert scene below the header and navbar which, along with the site name, Gigaholic, and the line 'Search for a gig review' on the image, make it immediately clear to visitors that the purpose of the site is for reading/posting concert reviews.
 
@@ -144,6 +145,10 @@ When a user clicks the 'Post a review' button on any page or 'Post new review' o
 The submit button then passes the form data to JavaScript with an event listener, and Fetch is used to post this data as a new review to the database. If the Fetch request has been completed successfully, a modal is displayed to indicate this to the user, and closing the modal redirects them to the landing page, where they can see their review amongst the newly posted reviews.
 
 ![Posted Success Modal](static/docs/readme-images/posted.png)
+![Review Posted](static/docs/readme-images/posted-2.png)
+
+This new review can also be seen as a new entry in the database Review table.
+
 ![Database Entry Created](static/docs/readme-images/db-created.png)
 
 This feature demonstrates Create functionality in this project.
@@ -160,9 +165,13 @@ These elements all demonstrate Read functionality.
 
 Similar to the post review buttons, clicking the 'Edit your reviews' button on a user's profile redirects the user to the edit review form. This uses the current user's ID to fetch all their posted reviews and build a dropdown. The concert ID is also attached to each option in the review dropdown, and this is used to get the associated concert information for the currently selected review, to then update the option in the concert dropdown accordingly. The review ID of the selected review is used get the data for that review and then pre-populate the form fields with the current review title, rating and text so they can then be edited. These updates happen both when the content is loaded and when the review dropdown is changed.
 
-As with the post form, JavaScript is then used to submit this data, but this time with a patch method in order to update the review with the ID passed in, and success modal is displayed if this request was successful. Closing this redirects the user to their profile.
+As with the post form, JavaScript is then used to submit this data, but this time with a patch method in order to update the review with the ID passed in, and success modal is displayed if this request was successful. Closing this redirects the user to their profile, where they can see the changes have been applied.
 
 ![Edited Success Modal](static/docs/readme-images/edited.png)
+![Review Edited](static/docs/readme-images/edited-2.png)
+
+These updates are also seen in the database table for the same review entry.
+
 ![Database Entry Updated](static/docs/readme-images/db-updated.png)
 
 This feature demonstrates Update functionality.
@@ -173,9 +182,13 @@ This feature demonstrates Update functionality.
 
 The delete form page uses the same method as the edit page to build a dropdown of the user's existing reviews.
 
-The delete button uses a Fetch request with the delete method to remove the review with the ID passed in from the database. Again, a success modal is displayed and redirects to the user's profile when closed.
+The delete button uses a Fetch request with the delete method to remove the review with the ID passed in from the database. Again, a success modal is displayed and redirects to the user's profile when closed, showing that the deleted review is no longer present.
 
 ![Deleted Success Modal](static/docs/readme-images/deleted.png)
+![Review Deleted](static/docs/readme-images/deleted-2.png)
+
+The review has also been deleted from the database Review table.
+
 ![Database Entry Deleted](static/docs/readme-images/db-deleted.png)
 
 This feature demonstrates Delete functionality.
