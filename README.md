@@ -48,9 +48,14 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 
 ### Website
 
-The design of the website was mapped out using a wireframe, before using HTML, CSS and Bootstrap to replicate it in the live project.
+The design of the website was mapped out using wireframes, before using HTML, CSS and Bootstrap to replicate it in the live project.
 
-![Gigaholic Wireframe](static/docs/wireframes/gigaholic-wireframe.png)
+<img width="70%" style="display: block; margin: auto;" src="static/docs/wireframes/gigaholic-wireframe.png" alt="Gigaholic Home Wireframe">
+<img width="46%" src="static/docs/wireframes/by-artist-wireframe.png" alt="Reviews By Artist Wireframe"><img width="54%" src="static/docs/wireframes/profile-wireframe.png" alt="Profile Wireframe">
+
+I used a hero image showing a concert scene below the header and navbar which, along with the site name, Gigaholic, and the line 'Search for a gig review' on the image, make it immediately clear to visitors that the purpose of the site is for reading/posting concert reviews.
+
+The colour scheme of the rest of the site matches the colours of the image, which are shades of burgundy, orange and yellow.
 
 ### Database
 
@@ -58,7 +63,17 @@ I used Excel to create this mockup of the database prior to starting this projec
 
 ![Gigaholic Database Mockup](static/docs/erds/database-mockup.png)
 
+In the finished project, the database follows a similar structure. There are 11 tables altogether, though two of them, Album and Song, are unused, as this was for a feature I did not have time to implement (see the [Improvements](#improvements-and-features-to-add) section), so I have not included them in this diagram.
 
+![Gigaholic ERD](static/docs/erds/gigaholic-erd.png)
+
+There are 6 main tables: Users, Review, Concert, Artist, Venue and Tour. These tables are all linked together through primary and foreign keys. Entries in the Review table contain a review ID, as well as review title, text and rating. This table references the user ID, so reviews can be connected to the user that wrote them, as well as the concert ID, so that reviews are connected to the relevant concert. These are both many-to-one relationships, as a user can write many reviews, but a review can only have one author; likewise, a concert can have many reviews but a single review can only talk about one concert.
+
+The Concert table contains further information on the concert being reviewed, such as the concert date, the artist, by referencing the artist ID from the Artist table, the venue, by referencing the venue ID, and the tour, by referencing the tour ID. These are also many to one relations: an artist can perform multiple concerts, a venue can host multiple concerts, and a tour contains multiple concerts. In theory, the concert-artist relationship should be many-to-many, as usually there are multiple artists performing at a concert, however this would have added a lot of complexity to the data structure, so I decided to limit it to one artist per concert at present.
+
+The Artist table contains the artist ID, artist name, and a genre ID, which links to a Genre table. This table has not been used in the site yet, but in theory as well as filtering by artist, tour, venue etc., you could also filter by genre when searching for concert reviews.
+
+The Venue table contains venue ID, venue name, and city ID, referencing a City table, which also then references a Country table. This information can be used in reviews to more clearly specify the location of the concert, and could also be used to search reviews by city or country.
 
 ---
 
@@ -192,7 +207,11 @@ My project was tested thoroughly by myself and others throughout the development
 
 ### Responsiveness
 
-The use of Bootstrap has helped to make this website somewhat responsive, however unfortunately, due to time constraints on this project, I was unable to make it fully responsive in its current state. It is usable on all screen sizes, however the sizing of things such as fonts makes the appearance rather unappealing. This is something I would like to improve in the future, but at this stage I had to prioritise the functionality and the database as that is the main focus of this project.
+The use of Bootstrap has helped to make this website somewhat responsive, however unfortunately, due to time constraints on this project, I was unable to make it fully responsive in its current state. It is usable on all screen sizes, however the sizing of things such as fonts makes the appearance rather unappealing. This is something I would like to improve in the future, but at this stage I had to prioritise the overall functionality of the site, the database and the CRUD features as these are the main focus of this project.
+
+### Compatibility
+
+The app was tested on a variety of internet browsers including Google Chrome, Microsoft Edge, Mozilla Firefox and Safari to ensure it is fully compatible. No compatibility issues were found on any of these browsers.
 
 ### Validation
 
