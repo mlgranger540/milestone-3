@@ -15,9 +15,9 @@
                     </div>
                     <div class="row">
                         <div class="col-1"></div>
-                        <button id="post-button" class="col-3 mx-3 mt-3 px-2 btn btn-success"><a href="{{ url_for('post_review', user_id=user.user_id) }}">Post new review</a></button>
-                        <button id="edit-button" class="col-3 mx-3 mt-3 px-2 btn btn-primary"><a href="{{ url_for('patch_review', user_id=user.user_id) }}">Edit your reviews</a></button>
-                        <button id="delete-button" class="col-3 mx-3 mt-3 px-2 btn btn-danger"><a href="{{ url_for('delete_review', user_id=user.user_id) }}">Delete a review</a></button>
+                        <button id="post-button" class="col-3 mx-3 mt-3 px-2 btn btn-success" type="button"><a href="{{ url_for('post_review', user_id=user.user_id) }}">Post new review</a></button>
+                        <button id="edit-button" class="col-3 mx-3 mt-3 px-2 btn btn-primary" type="button"><a href="{{ url_for('patch_review', user_id=user.user_id) }}">Edit your reviews</a></button>
+                        <button id="delete-button" class="col-3 mx-3 mt-3 px-2 btn btn-danger" type="button"><a href="{{ url_for('delete_review', user_id=user.user_id) }}">Delete a review</a></button>
                         <div class="col-1"></div>
                     </div>
                 </div>

@@ -6,10 +6,10 @@
             <div class="col-10 col-lg-8 col-xxl-6">
                 <h2 class="mt-5 mb-4">Search for a gig review</h2>
                 <form class="d-flex" role="search">
-                    <input id="search-input" class="form-control me-2" type="search" placeholder="Artist, tour, location..." aria-label="Search">
-                    <button id="search-button" class="btn btn-danger px-3" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+                    <input id="search-input" class="form-control me-2" type="search" placeholder="Artist, tour, location..." aria-label="Enter your query">
+                    <button id="search-button" class="btn btn-danger px-3" type="submit" aria-label="Search"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
                     {% if user != undefined and user.is_authenticated %}
-                    <button id="post-button" class="btn btn-success ms-2 px-3"><a href="{{ url_for('post_review', user_id=user.user_id) }}">Post a review</a></button>
+                    <button id="post-button" class="btn btn-success ms-2 px-3" type="button"><a href="{{ url_for('post_review', user_id=user.user_id) }}">Post a review</a></button>
                     {% endif %}
                 </form>
             </div>
