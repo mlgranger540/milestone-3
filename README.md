@@ -14,13 +14,15 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 
 - Goals for visitors:
 
-    - Log in and out of their account
-
-    - Have account data stored securely i.e. plain text passwords are not stored in the database
-
     - View posted concert reviews to read about others' experiences at live music shows and get opinions on which artists are good to see live
 
     - Search/filter posted reviews by a variety of categories such as date posted, artist, tour and venue to easily find what they are looking for
+
+    - Create an account
+
+    - Log in and out of their account
+
+    - Have account data stored securely i.e. plain text passwords are not stored in the database
 
     - Post their own new reviews to the website
 
@@ -39,6 +41,26 @@ View the live project [here](https://gigaholic.herokuapp.com/)
     - View posted reviews on site and in the database
 
     - Use the site themselves to add their own concert reviews
+
+---
+
+## Design and Planning
+
+### Website
+
+The design of the website was mapped out using a wireframe, before using HTML, CSS and Bootstrap to replicate it in the live project.
+
+![Gigaholic Wireframe](static/docs/wireframes/gigaholic-wireframe.png)
+
+### Database
+
+I used Excel to create this mockup of the database prior to starting this project, in order to get an idea of the tables I would need to create and how they would be connected through primary and foreign keys.
+
+![Gigaholic Database Mockup](static/docs/erds/database-mockup.png)
+
+
+
+---
 
 ## Features
 
@@ -131,21 +153,7 @@ Unfortunately due to time constraints I was unable to completely finish all feat
 
 ---
 
-## Design and Planning
 
-### Website
-
-The design of the website was mapped out using a wireframe, before using HTML, CSS and Bootstrap to replicate it in the live project.
-
-![Gigaholic Wireframe](static/docs/wireframes/gigaholic-wireframe.png)
-
-### Database
-
-I used Excel to create this mockup of the database prior to starting this project, in order to get an idea of the tables I would need to create and how they would be connected through primary and foreign keys.
-
-![Gigaholic Database Mockup](static/docs/erds/database-mockup.png)
-
----
 
 ## Technologies
 

@@ -118,7 +118,11 @@ ul {
 }
 
 
-/* Forms */
+/* Forms/Log In */
+
+#log-in-panel {
+    height: fit-content;
+}
 
 form, #log-in-title {
     margin-left: 3%;
@@ -133,7 +137,8 @@ form, #log-in-title {
 }
 
 #log-in-button {
-    padding: 1% 2%;
+    font-size: 110%;
+    padding: 1% 2.5%;
 }
 
 
