@@ -51,7 +51,6 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 The design of the website was mapped out using wireframes, before using HTML, CSS and Bootstrap to replicate it in the live project.
 
 <img width="70%" src="static/docs/wireframes/gigaholic-wireframe.png" alt="Gigaholic Home Wireframe">
-
 <img width="46%" src="static/docs/wireframes/by-artist-wireframe.png" alt="Reviews By Artist Wireframe"><img width="54%" src="static/docs/wireframes/profile-wireframe.png" alt="Profile Wireframe">
 
 I used a hero image showing a concert scene below the header and navbar which, along with the site name, Gigaholic, and the line 'Search for a gig review' on the image, make it immediately clear to visitors that the purpose of the site is for reading/posting concert reviews.
@@ -219,6 +218,8 @@ Unfortunately due to time constraints I was unable to completely finish all feat
 - [Git](https://git-scm.com/) for version control
 - [GitHub](https://github.com/) to store the project repository and back up git commits
 - [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to assist in creating the structure and design of the webpages
+- [pgAdmin](https://www.pgadmin.org/) to manage the PostgreSQL database and create the ERD
+- [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel) to create the initial mockup of the database
 - [Font Awesome](https://fontawesome.com/) for the search icon
 - [Justinmind](https://www.justinmind.com/) to create the wireframe
 
@@ -230,14 +231,31 @@ Unfortunately due to time constraints I was unable to completely finish all feat
 
 My project was tested thoroughly by myself and others throughout the development process to ensure that the application and its features worked as expected.
 
-- All the navigation links/buttons have been tested and go to the correct locations
-- Reviews displayed to the page all contain the correct information retrieved from the database
-- Only the logged in user's reviews are displayed on their profile and available for them to edit and delete, so no one can edit or delete someone else's review
-- Post, edit and delete buttons all function to post new reviews, patch existing reviews, and delete reviews from the database
-- All pages correctly bounce the visitor to the login page if they are not logged in
-- Login fails and flashes a message if user credentials do not match a user in the database
-- Log out button logs current user out successfully
-- Passwords are hashed before being stored in the database to avoid exposing sensitive log in details
+Site Function
+
+- All the navigation links/buttons have been tested and go to the correct locations, with no broken links.
+- The navbar correctly indicates which tab the user is currently on.
+- Post, edit and review buttons take the user to the relevant form and allow them to successfully post, edit or delete a review.
+
+Data Storage and Retrieval
+
+- Reviews displayed to the page contain the correct information retrieved from the database, including review title, review text and review rating, as well as the associated artist, venue and tour information, and the details of the user that posted it.
+- Post button successfully posts a new review to the database with the information provided by the user. This can be verified by viewing the database with pgAdmin or visiting any page where the review would be displayed, such as recent reviews or the user's profile.
+- The newest posted reviews appear first on the home/recent page, as they are sorted in reverse order of review ID (newer reviews will have a larger review ID as they have been created later).
+- All the logged in user's reviews (and no other user's) are correctly displayed on their profile.
+- Edit button successfully patches the selected review and updates the relevant fields in the database, as can be verified in pgAdmin or by viewing the updated review on the page.
+- Delete button successfully deletes the selected review from the database; deleted reviews will no longer appear in the database or anywhere on the site.
+
+Authorisation and Security
+
+- If correct credentials are supplied, the user is able to successfully log into their account.
+- Login fails and flashes a message if user credentials do not match a user in the database.
+- Pages that require login correctly bounce the visitor to the login page if they are not logged in.
+- Logged in users will see a personalised greeting with their username on the landing page, as well as a link to access their profile from any page; logged out users will see a 'Log In' button instead.
+- 'Post a review' buttons are only shown to logged in users, as an account is required to post a review.
+- Only the logged in user's reviews are available for them to edit and delete from their profile, so no one can edit or delete someone else's review.
+- Log out button logs the current user out successfully.
+- Passwords are hashed before being stored in the database to avoid exposing sensitive log in details.
 
 ### Responsiveness
 
