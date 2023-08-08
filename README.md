@@ -51,7 +51,7 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 The design of the website was mapped out using wireframes, before using HTML, CSS and Bootstrap to replicate it in the live project.
 
 <img width="70%" src="static/docs/wireframes/gigaholic-wireframe.png" alt="Gigaholic Home Wireframe">
-<img width="46%" src="static/docs/wireframes/by-artist-wireframe.png" alt="Reviews By Artist Wireframe"><img width="54%" src="static/docs/wireframes/profile-wireframe.png" alt="Profile Wireframe">
+<img width="45%" src="static/docs/wireframes/by-artist-wireframe.png" alt="Reviews By Artist Wireframe"><img width="53%" src="static/docs/wireframes/profile-wireframe.png" alt="Profile Wireframe">
 
 I used a hero image showing a concert scene below the header and navbar which, along with the site name, Gigaholic, and the line 'Search for a gig review' on the image, make it immediately clear to visitors that the purpose of the site is for reading/posting concert reviews.
 
@@ -203,6 +203,24 @@ Unfortunately due to time constraints I was unable to completely finish all feat
 
 ---
 
+## Project Structure - Backend
+
+### Database
+
+To create the database used in this project, I first created an account on ElephantSQL, which is a service that provides a fully managed database solution, meaning they take care of maintenance, reliability and updating the database server all for me. I have used this for my database as they offer a free tier (Tiny Turtle). The downside of this is that only a small number of connections can be made to the database at one time, however given the current scope of this project that was adequate as not many users would be attempting to access the site at once. If I were to expand this project into a full-scale web application, I would likely have to upgrade to one of the more extensive plans which offer a greater number of connections and larger storage capacity for the database, as this would allow more users to use the site at once without running into issues accessing the database, as well as allowing for the increase in the amount of data being stored. I chose to use the Google Compute Engine europe-west2 datacenter as this is located closest to my location in London, keeping request latency to a minimum for those in this region, as this is the area I expect most of my users to be at the moment.
+
+Once this database instance had been created, I then used pgAdmin to connect to the database by providing the connection details from ElephantSQL such as the host name, username and password. Once connected, I could use pgAdmin to easily access and manage my database and tables.
+
+The first step was to add my required tables and fill in my data. These tables are detailed in the [Database Design](#database) section above. I used the Excel mockup as a basis and copied the information across into the database.
+
+In order to then use the data from these tables in my application, I created a class in Python to represent each table and define what a row looks like in that table. There is also as a base database model that handles connection to the database, as well as the Create, Read, Update and Delete (CRUD) operations. This class has no knowledge of what table or data it is working on though, hence the need for a model per table.
+
+I then created a set of repositories for each table. It is these repositories that contain the SQL to actually perform operations on each table.
+
+I chose to use a SQL schema rather than a NoSQL method as the data used in this project is highly relational, which is easier to achieve in SQL compared with other non-SQL methods. Also, as the schema is unlikely to change, the flexible nature of NoSQL isnt really a benefit in this case.
+
+---
+
 ## Technologies
 
 ### Languages
@@ -218,7 +236,8 @@ Unfortunately due to time constraints I was unable to completely finish all feat
 - [Git](https://git-scm.com/) for version control
 - [GitHub](https://github.com/) to store the project repository and back up git commits
 - [Bootstrap v5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to assist in creating the structure and design of the webpages
-- [pgAdmin](https://www.pgadmin.org/) to manage the PostgreSQL database and create the ERD
+- [ElephantSQL](https://www.elephantsql.com/) to manage the PostgreSQL database
+- [pgAdmin](https://www.pgadmin.org/) to view and edit the data and create the ERD
 - [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel) to create the initial mockup of the database
 - [Font Awesome](https://fontawesome.com/) for the search icon
 - [Justinmind](https://www.justinmind.com/) to create the wireframe
@@ -235,7 +254,7 @@ Site Function
 
 - All the navigation links/buttons have been tested and go to the correct locations, with no broken links.
 - The navbar correctly indicates which tab the user is currently on.
-- Post, edit and review buttons take the user to the relevant form and allow them to successfully post, edit or delete a review.
+- Post, edit and review buttons take the user to the relevant form and allow them to post, edit or delete a review - if this request is completed successfully, a modal is displayed to inform the user.
 
 Data Storage and Retrieval
 
@@ -250,9 +269,8 @@ Authorisation and Security
 
 - If correct credentials are supplied, the user is able to successfully log into their account.
 - Login fails and flashes a message if user credentials do not match a user in the database.
-- Pages that require login correctly bounce the visitor to the login page if they are not logged in.
+- Pages that require login correctly bounce the visitor to the login page if they are not logged in. Originally, all pages required login as if a user tried to access any page with the 'Post a review' button on it without being logged in, this would cause an error, given the current user's user ID is required to be passed in for the button to function - if no user was logged in this could not happen. This was not ideal however as users without an account would then not be able to access the site at all or even really understand the purpose of it, as all they could see is the login page. To fix this, I made it so only the profile and post/edit/delete forms required login and all other pages would be accessible without an account, however the 'Post a review' button would only be shown to logged in users.
 - Logged in users will see a personalised greeting with their username on the landing page, as well as a link to access their profile from any page; logged out users will see a 'Log In' button instead.
-- 'Post a review' buttons are only shown to logged in users, as an account is required to post a review.
 - Only the logged in user's reviews are available for them to edit and delete from their profile, so no one can edit or delete someone else's review.
 - Log out button logs the current user out successfully.
 - Passwords are hashed before being stored in the database to avoid exposing sensitive log in details.
@@ -291,9 +309,11 @@ As my database uses the free tier of ElephantSQL, there can be issues with retri
 
 The final project has been deployed to Heroku. To do this, I created a Heroku continuous delivery (CD) pipeline to run the application with one dyno. The pipeline is connected to the main branch of the project's GitHub repository, so whenever new code is committed and pushed to GitHub, it is automatically deployed by Heroku to the live project. As this is a solo project, I have been committing my changes directly to the main branch, however in multi-person projects it would be better to work in a separate branch, then create a pull request to merge changes into the main branch after testing.
 
-To run the application, I have created a Procfile which runs the run.py script using Gunicorn to forward client requests to the Flask server within run.py. HTTPS has been enabled on the pipeline using the Heroku automatic SSL certificate setting, ensuring connections to the site from the client are encrypted. All PIP packages to allow the Flask server to run are contained in a requirements.txt file which Heroku then installs when it builds the dyno.
+To run the application, I have created a Procfile which runs the run.py script using Gunicorn to forward client requests to the Flask server within run.py. All PIP packages needed to allow the Flask server to run are contained in a requirements.txt file which Heroku then installs when it builds the dyno.
 
 With more time, the deployment process could be improved to have two dynos, one pulling from a development branch automatically, and the main one only being updated manually when development has been fully tested. Automatic continuous integration (CI) testing could also be set up so that builds are tested before Heroku tries to deploy them.
+
+HTTPS has been enabled on the pipeline using the Heroku automatic SSL certificate setting. This ensures that all connections to the site from the client are encrypted and secure.
 
 ---
 
