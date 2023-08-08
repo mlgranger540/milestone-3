@@ -51,7 +51,8 @@ View the live project [here](https://gigaholic.herokuapp.com/)
 The design of the website was mapped out using wireframes, before using HTML, CSS and Bootstrap to replicate it in the live project.
 
 <img width="70%" src="static/docs/wireframes/gigaholic-wireframe.png" alt="Gigaholic Home Wireframe">
-<img width="45%" src="static/docs/wireframes/by-artist-wireframe.png" alt="Reviews By Artist Wireframe"><img width="53%" src="static/docs/wireframes/profile-wireframe.png" alt="Profile Wireframe">
+
+<img width="46%" src="static/docs/wireframes/by-artist-wireframe.png" alt="Reviews By Artist Wireframe"><img width="54%" src="static/docs/wireframes/profile-wireframe.png" alt="Profile Wireframe">
 
 I used a hero image showing a concert scene below the header and navbar which, along with the site name, Gigaholic, and the line 'Search for a gig review' on the image, make it immediately clear to visitors that the purpose of the site is for reading/posting concert reviews.
 
@@ -63,7 +64,7 @@ I used Excel to create this mockup of the database prior to starting this projec
 
 ![Gigaholic Database Mockup](static/docs/erds/database-mockup.png)
 
-In the finished project, the database follows a similar structure. There are 11 tables altogether, though two of them, Album and Song, are unused, as this was for a feature I did not have time to implement (see the [Improvements](#improvements-and-features-to-add) section), so I have not included them in this diagram.
+In the finished project, the database follows a similar structure. There are 11 tables altogether, though two of them, Album and Song, are unused, as this was for a feature I did not have time to implement (see the [Improvements](#improvements-and-features-to-add) section). I have created the Entity Relationship Diagram (ERD) below to illustrate the database structure and how the tables link together. This was generated using the built-in ERD feature in pgAdmin. I have not included the Album and Song tables in this diagram as they are not currently in use in the project.
 
 ![Gigaholic ERD](static/docs/erds/gigaholic-erd.png)
 
@@ -209,13 +210,13 @@ Unfortunately due to time constraints I was unable to completely finish all feat
 
 To create the database used in this project, I first created an account on ElephantSQL, which is a service that provides a fully managed database solution, meaning they take care of maintenance, reliability and updating the database server all for me. I have used this for my database as they offer a free tier (Tiny Turtle). The downside of this is that only a small number of connections can be made to the database at one time, however given the current scope of this project that was adequate as not many users would be attempting to access the site at once. If I were to expand this project into a full-scale web application, I would likely have to upgrade to one of the more extensive plans which offer a greater number of connections and larger storage capacity for the database, as this would allow more users to use the site at once without running into issues accessing the database, as well as allowing for the increase in the amount of data being stored. I chose to use the Google Compute Engine europe-west2 datacenter as this is located closest to my location in London, keeping request latency to a minimum for those in this region, as this is the area I expect most of my users to be at the moment.
 
-Once this database instance had been created, I then used pgAdmin to connect to the database by providing the connection details from ElephantSQL such as the host name, username and password. Once connected, I could use pgAdmin to easily access and manage my database and tables.
+Once this database instance had been created, I then used pgAdmin to connect to the database by providing the connection details from ElephantSQL such as the host name, username and password. Once connected, I could use pgAdmin to easily access and manage my database and tables, including creating the tables, adding and editing data, and using the pgAdmin ERD tool to plan out the database schema.
 
 The first step was to add my required tables and fill in my data. These tables are detailed in the [Database Design](#database) section above. I used the Excel mockup as a basis and copied the information across into the database.
 
 In order to then use the data from these tables in my application, I created a class in Python to represent each table and define what a row looks like in that table. There is also as a base database model that handles connection to the database, as well as the Create, Read, Update and Delete (CRUD) operations. This class has no knowledge of what table or data it is working on though, hence the need for a model per table.
 
-I then created a set of repositories for each table. It is these repositories that contain the SQL to actually perform operations on each table.
+I then created a set of 'repository' classes for each table. It is these repositories that contain the SQL to actually perform CRUD operations on each table, and they all follow a similar pattern/structure.
 
 I chose to use a SQL schema rather than a NoSQL method as the data used in this project is highly relational, which is easier to achieve in SQL compared with other non-SQL methods. Also, as the schema is unlikely to change, the flexible nature of NoSQL isnt really a benefit in this case.
 
