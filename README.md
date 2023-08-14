@@ -126,7 +126,7 @@ Some pages of the site require the user to be logged in, such as the profile or 
 
 Unfortunately there is currently no sign up feature within the site to create new user accounts, so at present this can only be done by directly adding a new user into the database.
 
-Passwords are hashed before being stored in the database to avoid plain text passwords being discoverable.
+Passwords are hashed before being stored in the database using the PBKDF2 standard, as this is one of the main go-tos for password hashing in web application development. Password hashing is done so that, should a data leak occur, no plain text passwords are discoverable, leading to user accounts being compromised. As part of PBKDF2, only the hash is stored with the user in the database, so when a user attempts to log in, the plain text input is hashed to check if it matches the hash stored for that user.
 
 ### Profile
 
