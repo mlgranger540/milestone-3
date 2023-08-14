@@ -198,9 +198,10 @@ This feature demonstrates Delete functionality.
 Unfortunately due to time constraints I was unable to completely finish all features and pages of this application. Some of the features I wanted to add are:
 
 - The search bar would ideally allow you to search all the reviews in the database and return all the reviews containing your search, but this feature doesn't currently work.
+- There should also be a sign up form within the site to allow users to create an account without manually adding their details directly to the database, however I have not been able to implement this yet.
 - All aspects of a review should be clickable - for instance, clicking the artist in a review should bring you to the artist page showing all reviews for that artist; clicking the username should bring you to the profile of that user with all their reviews; clicking the venue should bring to the venue page for concert played at that location. At the moment this isn't the case and reviews are read-only and not able to be interacted with.
 - I was originally thinking of having the ability to link songs that were played at the concert into the review, but had to skip this feature to focus on the reviews themselves.
-- At the moment a user can only edit and delete reviews from their profile - ideally there should be an edit and delete button on the reviews themselves, but this would have been more time consuming to implement so I had to limit it to just the profile for now.
+- At the moment a user can only edit and delete reviews from their profile - ideally there should be an edit and delete button on the reviews themselves, but this would have been more time-consuming to implement so I had to limit it to just the profile for now.
 
 ---
 
