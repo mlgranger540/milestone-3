@@ -217,7 +217,7 @@ The first step was to add my required tables and fill in my data. These tables a
 
 In order to then use the data from these tables in my application, I created a class in Python to represent each table and define what a row looks like in that table. There is also as a base database model that handles connection to the database, as well as the Create, Read, Update and Delete (CRUD) operations. This class has no knowledge of what table or data it is working on though, hence the need for a model per table.
 
-I then created a set of 'repository' classes for each table. It is these repositories that contain the SQL to actually perform CRUD operations on each table, and they all follow a similar pattern/structure.
+I then created a set of 'repository' classes for each table. These repositories extend the base database class, meaning each has access to all the methods to create connections to the database and perform CRUD operations on it. They all follow a similar pattern/structure, with the repositories calling methods in the database class and passing in the required SQL statement to be executed.
 
 I chose to use a SQL schema rather than a NoSQL method as the data used in this project is highly relational, which is easier to achieve in SQL compared with other non-SQL methods. Also, as the schema is unlikely to change, the flexible nature of NoSQL isnt really a benefit in this case.
 
