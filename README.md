@@ -221,6 +221,16 @@ I then created a set of 'repository' classes for each table. These repositories 
 
 I chose to use a SQL schema rather than a NoSQL method as the data used in this project is highly relational, which is easier to achieve in SQL compared with other non-SQL methods. Also, as the schema is unlikely to change, the flexible nature of NoSQL isnt really a benefit in this case.
 
+### Flask
+
+This project uses Flask, which is a Python web framework used to faciliate the development of web applications by simplifying the creation of HTTP routes for page rendering and other tasks, reducing project setup time and easing backend server development.
+
+Basic Flask page routes are included in the run.py file. These will render the desired HTML template when a certain URL path is visited.
+
+Other Flask routes are contained in separate Blueprint files, which are then loaded in to run.py. This allows routes to be grouped together according to their purpose, making it easier to locate and maintain routes, rather than having them all together in one file.
+
+Routes related to the artist page and methods to retrieve artist information can be found in the ArtistBlueprint. Those related to getting concert or tour information are found in the ConcertBlueprint and TourBlueprint, respectively. Routes relating to reviews, such as creating, retrieving, updating and deleting reviews from the database, can be found in the ReviewBlueprint. Routes related to authorisation, such as logging in and out of accounts and log in and profile pages, can be found in the AuthBlueprint. Finally, routes to retrieve user details are located in the UserBlueprint.
+
 ---
 
 ## Technologies
