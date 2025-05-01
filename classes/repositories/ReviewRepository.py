@@ -14,9 +14,9 @@ class ReviewRepository(Database):
         public."Review"."ReviewText",
         public."Review"."ReviewRating",
         public."Concert"."ConcertDate",
-        public."Users"."UserName",
-        public."Users"."FirstName",
-        public."Users"."LastName",
+        public."User"."UserName",
+        public."User"."FirstName",
+        public."User"."LastName",
         public."Venue"."VenueName",
         public."City"."CityName",
         public."Country"."CountryName",
@@ -31,7 +31,7 @@ class ReviewRepository(Database):
         NATURAL JOIN public."Tour"
         NATURAL JOIN public."City"
         NATURAL JOIN public."Country"
-        NATURAL JOIN public."Users"
+        NATURAL JOIN public."User"
         NATURAL JOIN public."Artist"
         WHERE user_id = %s;"""
         data = (user_id, )
@@ -53,9 +53,9 @@ class ReviewRepository(Database):
         public."Review"."ReviewText",
         public."Review"."ReviewRating",
         public."Concert"."ConcertDate",
-        public."Users"."UserName",
-        public."Users"."FirstName",
-        public."Users"."LastName",
+        public."User"."UserName",
+        public."User"."FirstName",
+        public."User"."LastName",
         public."Venue"."VenueName",
         public."City"."CityName",
         public."Country"."CountryName",
@@ -70,7 +70,7 @@ class ReviewRepository(Database):
         NATURAL JOIN public."Tour"
         NATURAL JOIN public."City"
         NATURAL JOIN public."Country"
-        NATURAL JOIN public."Users"
+        NATURAL JOIN public."User"
         NATURAL JOIN public."Artist"
         WHERE concert_id = %s;"""
         data = (concert_id, )
@@ -92,9 +92,9 @@ class ReviewRepository(Database):
         public."Review"."ReviewText",
         public."Review"."ReviewRating",
         public."Concert"."ConcertDate",
-        public."Users"."UserName",
-        public."Users"."FirstName",
-        public."Users"."LastName",
+        public."User"."UserName",
+        public."User"."FirstName",
+        public."User"."LastName",
         public."Venue"."VenueName",
         public."City"."CityName",
         public."Country"."CountryName",
@@ -109,7 +109,7 @@ class ReviewRepository(Database):
         NATURAL JOIN public."Tour"
         NATURAL JOIN public."City"
         NATURAL JOIN public."Country"
-        NATURAL JOIN public."Users"
+        NATURAL JOIN public."User"
         NATURAL JOIN public."Artist"
         WHERE artist_id = %s;"""
         data = (artist_id,)
@@ -132,9 +132,9 @@ class ReviewRepository(Database):
         public."Review"."ReviewText",
         public."Review"."ReviewRating",
         public."Concert"."ConcertDate",
-        public."Users"."UserName",
-        public."Users"."FirstName",
-        public."Users"."LastName",
+        public."User"."UserName",
+        public."User"."FirstName",
+        public."User"."LastName",
         public."Venue"."VenueName",
         public."City"."CityName",
         public."Country"."CountryName",
@@ -149,7 +149,7 @@ class ReviewRepository(Database):
         NATURAL JOIN public."Tour"
         NATURAL JOIN public."City"
         NATURAL JOIN public."Country"
-        NATURAL JOIN public."Users"
+        NATURAL JOIN public."User"
         NATURAL JOIN public."Artist";"""
         data = ()
         rows = self.get_data(sql,data,False)
@@ -171,9 +171,9 @@ class ReviewRepository(Database):
         public."Review"."ReviewText",
         public."Review"."ReviewRating",
         public."Concert"."ConcertDate",
-        public."Users"."UserName",
-        public."Users"."FirstName",
-        public."Users"."LastName",
+        public."User"."UserName",
+        public."User"."FirstName",
+        public."User"."LastName",
         public."Venue"."VenueName",
         public."City"."CityName",
         public."Country"."CountryName",
@@ -188,7 +188,7 @@ class ReviewRepository(Database):
         NATURAL JOIN public."Tour"
         NATURAL JOIN public."City"
         NATURAL JOIN public."Country"
-        NATURAL JOIN public."Users"
+        NATURAL JOIN public."User"
         NATURAL JOIN public."Artist"
         WHERE tour_id = %s;"""
 
@@ -212,9 +212,9 @@ class ReviewRepository(Database):
         public."Review"."ReviewText",
         public."Review"."ReviewRating",
         public."Concert"."ConcertDate",
-        public."Users"."UserName",
-        public."Users"."FirstName",
-        public."Users"."LastName",
+        public."User"."UserName",
+        public."User"."FirstName",
+        public."User"."LastName",
         public."Venue"."VenueName",
         public."City"."CityName",
         public."Country"."CountryName",
@@ -229,7 +229,7 @@ class ReviewRepository(Database):
         NATURAL JOIN public."Tour"
         NATURAL JOIN public."City"
         NATURAL JOIN public."Country"
-        NATURAL JOIN public."Users"
+        NATURAL JOIN public."User"
         NATURAL JOIN public."Artist"
         WHERE venue_id = %s;"""
 
@@ -253,9 +253,9 @@ class ReviewRepository(Database):
         public."Review"."ReviewText",
         public."Review"."ReviewRating",
         public."Concert"."ConcertDate",
-        public."Users"."UserName",
-        public."Users"."FirstName",
-        public."Users"."LastName",
+        public."User"."UserName",
+        public."User"."FirstName",
+        public."User"."LastName",
         public."Venue"."VenueName",
         public."City"."CityName",
         public."Country"."CountryName",
@@ -270,7 +270,7 @@ class ReviewRepository(Database):
         NATURAL JOIN public."Tour"
         NATURAL JOIN public."City"
         NATURAL JOIN public."Country"
-        NATURAL JOIN public."Users"
+        NATURAL JOIN public."User"
         NATURAL JOIN public."Artist"
         WHERE review_id = %s;"""
         data = (review_id, )
