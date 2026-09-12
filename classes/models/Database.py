@@ -10,6 +10,7 @@ class Database:
         self.database_name = os.getenv('DB_DATABASE_NAME')
         self.user = os.getenv('DB_USER_NAME')
         self.password = os.getenv('DB_PASSWORD')
+        self.port = os.getenv('DB_PORT')
 
     # Private method to create a connection
     def __connect(self):
@@ -17,7 +18,8 @@ class Database:
             host = self.connection_string,
             database = self.database_name,
             user = self.user,
-            password = self.password)
+            password = self.password,
+            port = self.port)
     
     # Private method to close connection with db
     def __close(self, curr, conn):
